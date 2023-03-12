@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
-    class Class1
+    // class to store exercises
+    class Exercises
     {
+        string _name;
+        string _description;
+        DifficultyLevel difficultyLevel;
+
     }
 }
