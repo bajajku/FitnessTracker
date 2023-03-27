@@ -35,7 +35,7 @@
             Grid.Column="0"
             />
         <Entry
-            x:Name="UsernameEntry"
+            x:Name="PasswordEntry"
             Grid.Row="3"
             Grid.Column="1"
             />

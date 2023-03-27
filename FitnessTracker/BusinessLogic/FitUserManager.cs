@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
-    internal class UserManager
+    internal class FitUserManager
     {
         private List<User> _users;
         public List<User> Users
@@ -33,6 +33,14 @@ namespace FitnessTracker.BusinessLogic
                 User newUser = new User(username, password, dob, height, weight);
                 _users.Add(newUser);
             }   
+        }
+
+        public User Login(string username, string password)
+        {
+            User loggedIn = GetByUsername(username);
+            if (loggedIn == null) { return loggedIn; }
+            else if (loggedIn.Password == password) { return loggedIn; }
+            else { return loggedIn; }
         }
     }
 }
