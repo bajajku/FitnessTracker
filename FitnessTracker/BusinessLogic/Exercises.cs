@@ -14,6 +14,16 @@ namespace FitnessTracker.BusinessLogic
         DifficultyLevel _difficultyLevel;
         MuscleGroup _targetMuscle;
         
+        public string Name
+        {
+            get { return _name; }
+            set 
+            {   if (value == null) throw new ArgumentNullException();
+                
+                _name = value;
+            }
+        }
+        public string Description { get => _description; set {} }
         public Exercises(string name, string description, DifficultyLevel difficultyLevel, MuscleGroup targetMuscle)
         {
             _name = name;
@@ -25,10 +35,13 @@ namespace FitnessTracker.BusinessLogic
    }
     public class Cardio : Exercises
     {
+        int _duration;
         float _calorieBurned;
+
 
         public Cardio(float calorieBurned,string name, string description, DifficultyLevel difficultyLevel, MuscleGroup targetMuscle): base(name,description,difficultyLevel,targetMuscle)
         {
+            
             _calorieBurned = calorieBurned;
         }
     }

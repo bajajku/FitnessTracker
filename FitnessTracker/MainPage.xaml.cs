@@ -1,4 +1,8 @@
-﻿namespace FitnessTracker;
+﻿using FitnessTracker.BusinessLogic;
+using Newtonsoft.Json;
+using System.Text.Json;
+
+namespace FitnessTracker;
 
 public partial class MainPage : ContentPage
 {
@@ -13,7 +17,9 @@ public partial class MainPage : ContentPage
 	{
 		count++;
 
-		if (count == 1)
+
+
+        if (count == 1)
 			CounterBtn.Text = $"Clicked {count} time";
 		else
 			CounterBtn.Text = $"Clicked {count} times";

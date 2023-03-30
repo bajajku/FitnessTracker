@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Arm Circles",
+    "description": "Do arm circles",
+    "difficultyLevel": "Beginner",
+    "targetMuscle": "Shoulders"
+  },
+  {
+    "name": "Pushups",
+    "description": "Do push ups",
+    "difficultyLevel": "Expert",
+    "targetMuscle": "Chest"
+  },
+  {
+    "name": "Pull ups",
+    "description": "Do Pull ups",
+    "difficultyLevel": "Beginner",
+    "targetMuscle": "Back"
+  },
+  {
+    "name": "Cycling",
+    "description": "Do Cycling",
+    "difficultyLevel": "Intermediate",
+    "targetMuscle": "Legs"
+  }
+]

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
-    class Muscles
+    public enum MuscleGroup
     {
+        Biceps,
+        Triceps,
+        Chest,
+        Legs,
+        Back,
+        Shoulders,
     }
 }
