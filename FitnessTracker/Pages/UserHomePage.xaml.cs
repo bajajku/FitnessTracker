@@ -1,8 +1,8 @@
 namespace FitnessTracker.Pages;
 
-public partial class NewPage1 : ContentPage
+public partial class UserHomePage : ContentPage
 {
-	public NewPage1()
+	public UserHomePage()
 	{
 		InitializeComponent();
 	}

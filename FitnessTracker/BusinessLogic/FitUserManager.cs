@@ -8,10 +8,11 @@ namespace FitnessTracker.BusinessLogic
 {
     internal class FitUserManager
     {
-        private List<User> _users;
+        private List<User> _users = new List<User>();
         public List<User> Users
         {
             get => _users;
+            init => Users = _users;
         }
 
         public User GetByUsername(string username)
@@ -24,23 +25,25 @@ namespace FitnessTracker.BusinessLogic
                 }
             }
 
-            return null;
+            return null; //returns null if there are no users with matching username
         }
         public void AddUser(string username, string password, DateTime dob, float height, float weight)
         {
-            if (GetByUsername(username)== null)
+            if (GetByUsername(username) == null)
             {
                 User newUser = new User(username, password, dob, height, weight);
-                _users.Add(newUser);
-            }   
+                Users.Add(newUser);
+                Login(username, password);
+            }
+            else throw new Exception($"User with name {username} already exists");
         }
 
         public User Login(string username, string password)
         {
             User loggedIn = GetByUsername(username);
-            if (loggedIn == null) { return loggedIn; }
-            else if (loggedIn.Password == password) { return loggedIn; }
-            else { return loggedIn; }
+            if (loggedIn == null) { return loggedIn; } //returns null if no user with matching username exists
+            else if (loggedIn.Password == password) { return loggedIn; } //returns user with matching info
+            else { return loggedIn; } //returning null if user with matching username has a password different than entered
         }
     }
 }

@@ -1,7 +1,8 @@
-using Android.OS;
+//using Android.OS;
 using Microsoft.Maui.Graphics.Text;
 using FitnessTracker.BusinessLogic;
-using Android.Hardware.Lights;
+//using Java.Lang;
+//using Android.Hardware.Lights;
 
 namespace FitnessTracker.Pages;
 
@@ -25,46 +26,68 @@ public partial class UserLoginPage : ContentPage
 
     private void OnNextClicked(object sender, EventArgs e)
     {
-        if (NewAccount.IsChecked) { NewUserFromEntry(); }
-        //move to main user page.
+        if (NewAccount.IsChecked) NewUserFromEntry();
+        LoginFromEntry(); //always tries to login, if newaccount is checked, it will create a user FIRST
+
     }
 
     public void NewUserFromEntry()
     {
-        if ((UsernameEntry.Text).Length > 0) //makes sure there is actual entry for username
+        //error handling ver:
+        try
         {
-            string username = UsernameEntry.Text; // is ensured to be unique by the AddUser method.
-            if ((PasswordEntry.Text).Length > 0) // makes sure there is a entered password.
-            {
-                string password = PasswordEntry.Text;
-                DateTime dob = DoBPicker.Date;
-                if (float.Parse(HeightEntry.Text) > 0) //makes sure height is above 0
-                {
-                    float height = float.Parse(HeightEntry.Text);
-                    if (float.Parse(WeightEntry.Text) > 0) //makes sure weight is above 0
-                    {
-                        float weight = float.Parse(WeightEntry.Text);
-                        _fitUserManager.AddUser(username, password, dob, height, weight); //adds the user.
-                        //TODO: this line will navigate to the User Page from this page.
-                    }
-
-                }
-            }
-
+            if (string.IsNullOrEmpty(UsernameEntry.Text) == true) throw new Exception("Username Cannot be Empty");
+            string username = UsernameEntry.Text;
+            if (string.IsNullOrEmpty(PasswordEntry.Text) == true) throw new Exception("Password Cannot be Empty");
+            string password = PasswordEntry.Text;
+            DateTime dob = DoBPicker.Date;
+            if (string.IsNullOrEmpty(HeightEntry.Text) == true || float.Parse(HeightEntry.Text) <= 0) throw new Exception("Height must be greater than 0");
+            float height = float.Parse(HeightEntry.Text);
+            if (string.IsNullOrEmpty(WeightEntry.Text) == true || float.Parse(WeightEntry.Text) <= 0) throw new Exception("Weight must be greater than 0");
+            float weight = float.Parse(WeightEntry.Text);
+            _fitUserManager.AddUser(username, password, dob, height, weight);
         }
-        //NEEDS PROPER EXCEPTION HANDLING .. i think...
+        catch (Exception N)
+        {
+            HandleInputError(N.Message);
+        }
+
     }
 
-    public void LoginFromEntry()
+    public void HandleInputError(string message)
     {
-        if ((UsernameEntry.Text).Length > 0) //makes sure there is actual entry for username
-        {
-            string username = UsernameEntry.Text; // is ensured to be unique by the AddUser method.
-            if ((PasswordEntry.Text).Length > 0) // makes sure there is a entered password.
-            {
-                string password = PasswordEntry.Text;
-                _fitUserManager.Login(username, password); //returns User. TODO: this line will navigate to the User Page from this page.
-            }
-        }
+        DisplayAlert("Couldn't Continue", message, "Ok.");
     }
+
+    public async void LoginFromEntry()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(UsernameEntry.Text) == true) throw new Exception("Username Cannot be Empty");
+            string username = UsernameEntry.Text;
+            if (string.IsNullOrEmpty(PasswordEntry.Text) == true) throw new Exception("Password Cannot be Empty");
+            string password = PasswordEntry.Text;
+
+            if (_fitUserManager.Login(username, password) == null)
+            {
+                PasswordEntry.Text= string.Empty;
+                throw new Exception("Username or Password is incorrect");
+            }
+            else
+            {
+                //navigate to homepage
+                UserHomePage _userHomePage = new UserHomePage();//parameter should be the fuckin uh, the user manager i think? cause the index of the user is the key for everything else.
+                _userHomePage.BindingContext = _fitUserManager.Login(username, password); //binding context of user page is the goddamn user!!! as GOD intended!!
+                await Navigation.PushAsync(new UserHomePage());
+            }
+            
+        }
+        catch(Exception N)
+        {
+            HandleInputError(N.Message);
+        }
+
+    }
+
+
 }
