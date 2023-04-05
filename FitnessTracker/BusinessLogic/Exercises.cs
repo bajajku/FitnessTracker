@@ -11,8 +11,9 @@ namespace FitnessTracker.BusinessLogic
    {
         string _name;
         string _description;
-        DifficultyLevel _difficultyLevel;
         MuscleGroup _targetMuscle;
+        bool _isCardio;
+        float _calorieBurned;
         
         public string Name
         {
@@ -24,26 +25,15 @@ namespace FitnessTracker.BusinessLogic
             }
         }
         public string Description { get => _description; set {} }
-        public Exercises(string name, string description, DifficultyLevel difficultyLevel, MuscleGroup targetMuscle)
+        public Exercises(string name, string description, MuscleGroup targetMuscle, bool isCardio, float calorieBurned)
         {
-            _name = name;
-            _description = description;
-            _difficultyLevel = difficultyLevel;
-            _targetMuscle= targetMuscle;
-        }
-
-   }
-    public class Cardio : Exercises
-    {
-        int _duration;
-        float _calorieBurned;
-
-
-        public Cardio(float calorieBurned,string name, string description, DifficultyLevel difficultyLevel, MuscleGroup targetMuscle): base(name,description,difficultyLevel,targetMuscle)
-        {
-            
+            Name = name;
+            Description = description;
+            _targetMuscle = targetMuscle;
+            _isCardio = isCardio;
             _calorieBurned = calorieBurned;
         }
+
     }
 
 }
