@@ -80,15 +80,18 @@ namespace FitnessTracker.BusinessLogic
         {
             return (Weight / (Height * Height));
         }
-        public User(int userId, string username, string password, DateTime dob, float height, float weight)
+        public User(string username, string password, DateTime dob, float height, float weight)
         {
-            _userId = userId;
             _username = username;
             _password = password;
             _dob = dob;
             _height = height;
             _weight = weight;
             //also has workoutPlan, nutritionPlan, however they are not directly connected, logically connected as they are marked with the username.
+        }
+        public override string ToString()
+        {
+            return $"{Username}, {Password}, {Dob}, {Height}, {Weight}";
         }
     }
 }

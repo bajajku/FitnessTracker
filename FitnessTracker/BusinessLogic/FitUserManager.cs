@@ -32,7 +32,7 @@ namespace FitnessTracker.BusinessLogic
             if (GetByUsername(username) == null)
             {
                 int userId = Users.Count() + 1;
-                User newUser = new User(userId, username, password, dob, height, weight);
+                User newUser = new User(username, password, dob, height, weight);
                 Users.Add(newUser);
                 Login(username, password);
             }
