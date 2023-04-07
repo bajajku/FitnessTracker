@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.DataAccess
 {
-    internal class IUserDataManager
+    public interface IUserDataManager
     {
         //read
+        public void WriteAllUsers(List<User> userList);
 
         //write
+        public List<User> ReadAllUsers();
     }
 }

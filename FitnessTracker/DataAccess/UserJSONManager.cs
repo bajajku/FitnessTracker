@@ -10,7 +10,7 @@ using FitnessTracker.BusinessLogic;
 
 namespace FitnessTracker.DataAccess
 {
-    internal class UserJsonManager:IUserDataManager
+    internal class UserJsonManager : IUserDataManager
     {
         string _filePath;
         private readonly JsonSerializerOptions _options = new JsonSerializerOptions()

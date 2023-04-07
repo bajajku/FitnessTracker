@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitnessTracker.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,16 @@ namespace FitnessTracker.BusinessLogic
             if (loggedIn == null) { return loggedIn; } //returns null if no user with matching username exists
             else if (loggedIn.Password == password) { return loggedIn; } //returns user with matching info
             else { return loggedIn; } //returning null if user with matching username has a password different than entered
+        }
+
+        public void SaveData(IUserDataManager dataManager)
+        {
+            dataManager.WriteAllUsers(Users);
+        }
+
+        public void ReadData(IUserDataManager dataManager)
+        {
+            _users = dataManager.ReadAllUsers();
         }
     }
 }
