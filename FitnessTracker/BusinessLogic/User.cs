@@ -11,12 +11,6 @@ namespace FitnessTracker.BusinessLogic
     {
         //ACCT INFO
         //Username
-        private int _userId;
-        public int UserId
-        {
-            get => _userId; 
-            init => _userId = value;
-        }
         private string _username;
         public string Username
         {

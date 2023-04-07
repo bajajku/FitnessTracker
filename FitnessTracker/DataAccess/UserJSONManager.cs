@@ -18,20 +18,24 @@ namespace FitnessTracker.DataAccess
         {
             _filePath = filePath;
         }
-        private readonly JsonSerializerOptions _options = new JsonSerializerOptions()
+        private readonly JsonSerializerOptions _writeOptions = new JsonSerializerOptions()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented= true,
         };
+        private readonly JsonSerializerOptions _readOptions = new JsonSerializerOptions()
+        {
+            PropertyNameCaseInsensitive = true,
+        };
         public void WriteAllUsers(List<User> userList)
         {
-            string userJson = JsonSerializer.Serialize(userList, _options);
+            string userJson = JsonSerializer.Serialize(userList, _writeOptions);
             File.WriteAllText(_filePath, userJson);    
         }
         public List<User> ReadAllUsers()
         {
             string userJson = File.ReadAllText(_filePath);
-            List<User> users = JsonSerializer.Deserialize<List<User>>(userJson);
+            List<User> users = JsonSerializer.Deserialize<List<User>>(userJson, _readOptions);
             return users;
 
         }
