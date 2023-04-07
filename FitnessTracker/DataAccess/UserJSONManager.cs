@@ -13,6 +13,11 @@ namespace FitnessTracker.DataAccess
     internal class UserJsonManager : IUserDataManager
     {
         string _filePath;
+        
+        public UserJsonManager(string filePath)
+        {
+            _filePath = filePath;
+        }
         private readonly JsonSerializerOptions _options = new JsonSerializerOptions()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
