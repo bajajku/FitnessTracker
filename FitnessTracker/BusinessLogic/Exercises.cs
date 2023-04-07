@@ -11,7 +11,8 @@ namespace FitnessTracker.BusinessLogic
    {
         string _name;
         string _description;
-        MuscleGroup _targetMuscle;
+        MuscleGroup _primaryMuscle;
+        MuscleGroup _secondaryMuscle;
         bool _isCardio;
         float _calorieBurned;
         
@@ -25,13 +26,14 @@ namespace FitnessTracker.BusinessLogic
             }
         }
         public string Description { get => _description; set {} }
-        public Exercises(string name, string description, MuscleGroup targetMuscle, bool isCardio, float calorieBurned)
+        public Exercises(string name, string description,MuscleGroup primaryMuscle, MuscleGroup secondaryMuscle, bool isCardio, float calorieBurned)
         {
             Name = name;
             Description = description;
-            _targetMuscle = targetMuscle;
             _isCardio = isCardio;
             _calorieBurned = calorieBurned;
+            _primaryMuscle = primaryMuscle;
+            _secondaryMuscle= secondaryMuscle;
         }
 
     }

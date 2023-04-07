@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
-    internal class FitUserManager
+    public class FitUserManager
     {
         private List<User> _users = new List<User>();
         public List<User> Users
