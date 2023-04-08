@@ -3,7 +3,8 @@
     "name": "Arm Circles",
     "description": "Do arm circles",
     "difficultyLevel": "Beginner",
-    "targetMuscle": "Shoulders"
+    "targetMuscle": "Shoulders",
+    "tags": [ "dfdsf", "sdfds" ]
   },
   {
     "name": "Pushups",

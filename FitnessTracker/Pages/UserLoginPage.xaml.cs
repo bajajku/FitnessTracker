@@ -1,6 +1,7 @@
 //using Android.OS;
 using Microsoft.Maui.Graphics.Text;
 using FitnessTracker.BusinessLogic;
+using FitnessTracker.Repository;
 //using Java.Lang;
 //using Android.Hardware.Lights;
 
@@ -12,6 +13,7 @@ public partial class UserLoginPage : ContentPage
     public UserLoginPage()
     {
         InitializeComponent();
+        var workouts = JsonReader.ReadFromWorkoutJson();
         DateTime MaximumDoB = DateTime.Today;
         TimeSpan ThirteenYears = new TimeSpan(4745, 0, 0, 0);
         MaximumDoB = MaximumDoB - ThirteenYears;

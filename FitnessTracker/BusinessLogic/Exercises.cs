@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
     // class to store exercises
-   public class Exercises
+   public class Exercise
    {
         string _name;
-        string _description;
-        MuscleGroup _primaryMuscle;
-        MuscleGroup _secondaryMuscle;
-        bool _isCardio;
-        float _calorieBurned;
-        
+        string _primaryMuscle;
+        string _secondaryMuscle;
+        int _sets;
+        int _reps;
+        //int _duration;
+
+        [JsonPropertyOrder(1)]
+        [JsonPropertyName("name")]
         public string Name
         {
             get { return _name; }
@@ -25,15 +28,33 @@ namespace FitnessTracker.BusinessLogic
                 _name = value;
             }
         }
-        public string Description { get => _description; set {} }
-        public Exercises(string name, string description,MuscleGroup primaryMuscle, MuscleGroup secondaryMuscle, bool isCardio, float calorieBurned)
+
+        [JsonPropertyName("primaryMuscle")]
+        [JsonPropertyOrder(4)]
+
+        public string PrimaryMuscle { get=> _primaryMuscle; set { _primaryMuscle = value; } }
+
+        [JsonPropertyName("secondaryMuscle")]
+        [JsonPropertyOrder(5)]
+        public string SecondaryMuscle { get => _secondaryMuscle; set { _secondaryMuscle = value; } }
+
+        [JsonPropertyName("sets")]
+        [JsonPropertyOrder(2)]
+        public int Sets { get => _sets; set { _sets = value; } }
+
+        [JsonPropertyName("reps")]
+        [JsonPropertyOrder(3)]
+        public int Reps { get => _reps; set { _reps = value; } }
+
+        //[JsonPropertyName("duration")]
+        //public int Duration { get => _duration; set { _duration = value; } }
+        public Exercise(string name, int sets, int reps, string primaryMuscle, string secondaryMuscle)
         {
             Name = name;
-            Description = description;
-            _isCardio = isCardio;
-            _calorieBurned = calorieBurned;
-            _primaryMuscle = primaryMuscle;
-            _secondaryMuscle= secondaryMuscle;
+            PrimaryMuscle = primaryMuscle;
+            SecondaryMuscle= secondaryMuscle;
+            Sets= sets;
+            Reps = reps;
         }
 
     }

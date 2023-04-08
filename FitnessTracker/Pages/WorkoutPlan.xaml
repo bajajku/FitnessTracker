@@ -4,7 +4,8 @@
              x:Class="FitnessTracker.Pages.WorkoutPlan"
              Title="WorkoutPlan">
     <Grid RowDefinitions="*,10*,*" ColumnDefinitions="*,*">
-        <ListView x:Name="ListWorkoutPlans" Grid.Row="1" Grid.Column="0">
+        <ListView x:Name="ListWorkoutPlans" Grid.Row="1" Grid.Column="0"
+                  SelectedItem="{Binding SelectedWorkout,Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -14,15 +15,43 @@
                                     Grid.Column="1"
                                     >
                                 <Label 
-                                        Text=""
+                                        Text="{Binding Name}"
                                         FontAttributes="Bold"
                                         FontSize="Medium"/>
                                 <Label 
-                                        Text=""
+                                        Text="{Binding Description}"
                                         FontAttributes="Italic"
                                         FontSize="Small"/>
                                 <Label 
-                                        Text=""
+                                        Text="{Binding Duration}"
+                                        FontAttributes="Italic"
+                                        FontSize="Small"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="ExercisesList" Grid.Row="1" Grid.Column="1"
+                  ItemsSource="{Binding Path=SelectedWorkout.Exercises}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
+                        ColumnDefinitions="*,5*">
+                            <VerticalStackLayout
+                                    Grid.Column="1"
+                                    >
+                                <Label 
+                                        Text="{Binding Name}"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"/>
+                                <Label 
+                                        Text="{Binding Reps}"
+                                        FontAttributes="Italic"
+                                        FontSize="Small"/>
+                                <Label 
+                                        Text="{Binding Sets}"
                                         FontAttributes="Italic"
                                         FontSize="Small"/>
                             </VerticalStackLayout>
