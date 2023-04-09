@@ -1,7 +1,6 @@
 //using Android.OS;
 using Microsoft.Maui.Graphics.Text;
 using FitnessTracker.BusinessLogic;
-using FitnessTracker.Repository;
 //using Java.Lang;
 //using Android.Hardware.Lights;
 
@@ -10,10 +9,11 @@ namespace FitnessTracker.Pages;
 public partial class UserLoginPage : ContentPage
 {
     FitUserManager _fitUserManager = new FitUserManager();
+
+    IUserDataManager _userDataManager = new UserJsonManager(Path.Combine(FileSystem.Current.AppDataDirectory, "users.json"));
     public UserLoginPage()
     {
         InitializeComponent();
-        var workouts = JsonReader.ReadFromWorkoutJson();
         DateTime MaximumDoB = DateTime.Today;
         TimeSpan ThirteenYears = new TimeSpan(4745, 0, 0, 0);
         MaximumDoB = MaximumDoB - ThirteenYears;
@@ -48,6 +48,7 @@ public partial class UserLoginPage : ContentPage
             if (string.IsNullOrEmpty(WeightEntry.Text) == true || float.Parse(WeightEntry.Text) <= 0) throw new Exception("Weight must be greater than 0");
             float weight = float.Parse(WeightEntry.Text);
             _fitUserManager.AddUser(username, password, dob, height, weight);
+            _fitUserManager.SaveData(_userDataManager);
         }
         catch (Exception N)
         {
@@ -80,7 +81,13 @@ public partial class UserLoginPage : ContentPage
                 //navigate to homepage
                 //UserHomePage _userHomePage = new UserHomePage();//parameter should be the fuckin uh, the user manager i think? cause the index of the user is the key for everything else.
                 //_userHomePage.BindingContext = _fitUserManager.Login(username, password); //binding context of user page is the goddamn user!!! as GOD intended!!
-                await Navigation.PushAsync(new UserHomePage(_fitUserManager.Login(username, password)));
+                User loggedInUser = _fitUserManager.Login(username, password);
+                if (loggedInUser == null)
+                {
+                    PasswordEntry.Text = string.Empty;
+                    throw new Exception("Username or Password is incorrect");
+                }
+                await Navigation.PushAsync(new UserHomePage(loggedInUser));
             }
             
         }

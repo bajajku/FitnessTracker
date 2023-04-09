@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitnessTracker.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace FitnessTracker.BusinessLogic
         public List<User> Users
         {
             get => _users;
-            init => Users = _users;
+            set => _users = value;
         }
 
         public User GetByUsername(string username)
@@ -32,7 +33,7 @@ namespace FitnessTracker.BusinessLogic
             if (GetByUsername(username) == null)
             {
                 int userId = Users.Count() + 1;
-                User newUser = new User(userId, username, password, dob, height, weight);
+                User newUser = new User(username, password, dob, height, weight);
                 Users.Add(newUser);
                 Login(username, password);
             }
@@ -44,7 +45,17 @@ namespace FitnessTracker.BusinessLogic
             User loggedIn = GetByUsername(username);
             if (loggedIn == null) { return loggedIn; } //returns null if no user with matching username exists
             else if (loggedIn.Password == password) { return loggedIn; } //returns user with matching info
-            else { return loggedIn; } //returning null if user with matching username has a password different than entered
+            else { return null; } //returning null if user with matching username has a password different than entered
+        }
+
+        public void SaveData(IUserDataManager dataManager)
+        {
+            dataManager.WriteAllUsers(Users);
+        }
+
+        public void ReadData(IUserDataManager dataManager)
+        {
+            _users = dataManager.ReadAllUsers();
         }
     }
 }
