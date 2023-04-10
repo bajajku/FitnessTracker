@@ -49,6 +49,29 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\barbellsquats.gif" />
+	  <None Remove="Resources\Images\benchpress.gif" />
+	  <None Remove="Resources\Images\bicepcurls.gif" />
+	  <None Remove="Resources\Images\burpees.gif" />
+	  <None Remove="Resources\Images\calveraises.gif" />
+	  <None Remove="Resources\Images\crunches.gif" />
+	  <None Remove="Resources\Images\deadlift.gif" />
+	  <None Remove="Resources\Images\dips.gif" />
+	  <None Remove="Resources\Images\homesquats.gif" />
+	  <None Remove="Resources\Images\inclinebench.gif" />
+	  <None Remove="Resources\Images\jumpingjacks.gif" />
+	  <None Remove="Resources\Images\lateralraises.gif" />
+	  <None Remove="Resources\Images\latpulldown.gif" />
+	  <None Remove="Resources\Images\legextension.gif" />
+	  <None Remove="Resources\Images\legpress.gif" />
+	  <None Remove="Resources\Images\plank.gif" />
+	  <None Remove="Resources\Images\preacher.gif" />
+	  <None Remove="Resources\Images\pullups.gif" />
+	  <None Remove="Resources\Images\pushups.gif" />
+	  <None Remove="Resources\Images\romaniandeadlift.gif" />
+	  <None Remove="Resources\Images\shoulderpress.gif" />
+	  <None Remove="Resources\Images\sprint.gif" />
+	  <None Remove="Resources\Images\triceppushdown.gif" />
 	  <None Remove="Resources\Raw\users.json" />
 	</ItemGroup>
 

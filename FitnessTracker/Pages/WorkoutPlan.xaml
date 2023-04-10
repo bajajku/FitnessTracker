@@ -3,16 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitnessTracker.Pages.WorkoutPlan"
              Title="WorkoutPlan">
-    <Grid RowDefinitions="*,10*,*" ColumnDefinitions="*,*">
-        <ListView x:Name="ListWorkoutPlans" Grid.Row="1" Grid.Column="0"
-                  SelectedItem="{Binding SelectedWorkout,Mode=TwoWay}">
+    <Grid RowDefinitions="*,*,8*,*" ColumnDefinitions="*,*">
+        <Label Text="Add Workout Plans" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center"
+               FontSize="Header"/>
+        <Picker
+            x:Name="Filter"
+            Grid.Row="1"
+            Grid.Column="0"
+            >
+        </Picker>
+        <ListView x:Name="ListWorkoutPlans" Grid.Row="2" Grid.Column="0"
+                  SelectedItem="{Binding SelectedWorkout,Mode=TwoWay}" Margin="10,10,10,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid
-                        ColumnDefinitions="*,5*">
+                        ColumnDefinitions="5*">
                             <VerticalStackLayout
-                                    Grid.Column="1"
+                                    Grid.Column="0"
                                     >
                                 <Label 
                                         Text="{Binding Name}"
@@ -23,7 +31,11 @@
                                         FontAttributes="Italic"
                                         FontSize="Small"/>
                                 <Label 
-                                        Text="{Binding Duration}"
+                                        Text="{Binding Duration, StringFormat='Duration: {0}' }"
+                                        FontAttributes="Italic"
+                                        FontSize="Small"/>
+                                <Label 
+                                        Text="{Binding DifficultyLevel, StringFormat='Difficulty Level: {0}' }"
                                         FontAttributes="Italic"
                                         FontSize="Small"/>
                             </VerticalStackLayout>
@@ -32,26 +44,31 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView x:Name="ExercisesList" Grid.Row="1" Grid.Column="1"
-                  ItemsSource="{Binding Path=SelectedWorkout.Exercises}">
+        <ListView x:Name="ExercisesList" Grid.Row="2" Grid.Column="1"
+                  ItemsSource="{Binding Path=SelectedWorkout.Exercises}" Margin="10,10,10,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid
-                        ColumnDefinitions="*,5*">
+                        ColumnDefinitions="3*,*">
+                            <Image Grid.Column="1" Source="{Binding Image}" 
+                                    HeightRequest="200"
+                                   WidthRequest="200"
+                                   Margin="10,10,10,10"
+                               />
                             <VerticalStackLayout
-                                    Grid.Column="1"
+                                    Grid.Column="0"
                                     >
                                 <Label 
                                         Text="{Binding Name}"
                                         FontAttributes="Bold"
                                         FontSize="Medium"/>
                                 <Label 
-                                        Text="{Binding Reps}"
+                                        Text="{Binding Sets, StringFormat='Sets: {0}'}"
                                         FontAttributes="Italic"
                                         FontSize="Small"/>
                                 <Label 
-                                        Text="{Binding Sets}"
+                                        Text="{Binding Reps, StringFormat='Reps: {0}'}"
                                         FontAttributes="Italic"
                                         FontSize="Small"/>
                             </VerticalStackLayout>
@@ -60,6 +77,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <HorizontalStackLayout 
+            Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center">
+
+            <Button Text="Add Plan" FontSize="Medium" Margin="10,10,10,10"/>
+            <Button Text="Back to Home" FontSize="Medium" Margin="10,10,10,10"/>
+
+        </HorizontalStackLayout>
 
 
 

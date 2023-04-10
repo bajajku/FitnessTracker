@@ -15,6 +15,7 @@ namespace FitnessTracker.BusinessLogic
         string _secondaryMuscle;
         int _sets;
         int _reps;
+        string _image;
         //int _duration;
 
         [JsonPropertyOrder(1)]
@@ -46,15 +47,20 @@ namespace FitnessTracker.BusinessLogic
         [JsonPropertyOrder(3)]
         public int Reps { get => _reps; set { _reps = value; } }
 
+        [JsonPropertyName("image")]
+        [JsonPropertyOrder(6)]
+        public string Image { get=> _image; set { _image = value; } }
+
         //[JsonPropertyName("duration")]
         //public int Duration { get => _duration; set { _duration = value; } }
-        public Exercise(string name, int sets, int reps, string primaryMuscle, string secondaryMuscle)
+        public Exercise(string name, int sets, int reps, string primaryMuscle, string secondaryMuscle,string image)
         {
             Name = name;
             PrimaryMuscle = primaryMuscle;
             SecondaryMuscle= secondaryMuscle;
             Sets= sets;
             Reps = reps;
+            Image = image;
         }
 
     }

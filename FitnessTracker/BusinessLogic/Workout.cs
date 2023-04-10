@@ -30,6 +30,7 @@ namespace FitnessTracker.BusinessLogic
         List<string> _tags;
         public List<string> Tags { get { return _tags; } set { _tags = value; } }
 
+
         List<Exercise> _exercises;
         public List<Exercise> Exercises { get { return _exercises; } set { _exercises = value; } }
     }
