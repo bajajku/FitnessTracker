@@ -7,7 +7,7 @@ public partial class WorkoutPlan : ContentPage
 	JsonReader jsonReader = new JsonReader();
 	List<Workout> workouts;
     Workout _selectedWorkout;
-    List<string> tags;
+    List<string> tags = new List<string>();
 
     public Workout SelectedWorkout // property to return selected room from list view
     {
@@ -25,8 +25,23 @@ public partial class WorkoutPlan : ContentPage
 		InitializeComponent();
 		workouts = jsonReader.Workouts;
 		ListWorkoutPlans.ItemsSource = workouts;
-        tags = string.Join(",", workouts.Select(x=> x.Tags).ToList()).Split(",").ToList().Distinct().ToList();
+        tags.Add("All");
+        tags.AddRange(string.Join(",", workouts.Select(x=> string.Join(",",x.Tags)).ToList()).Split(",").ToList().Distinct().ToList());
         Filter.ItemsSource = tags;
+        Filter.SelectedIndex= 0;
         BindingContext= this;
 	}
+
+    private void Filter_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var selectedItem = Filter.SelectedItem.ToString();
+        if(selectedItem != "All")
+        {
+            ListWorkoutPlans.ItemsSource = workouts.Where(x => x.Tags.Contains(selectedItem)).ToList();
+        }
+        else
+        {
+            ListWorkoutPlans.ItemsSource = workouts;
+        }
+    }
 }

@@ -10,6 +10,7 @@
             x:Name="Filter"
             Grid.Row="1"
             Grid.Column="0"
+            SelectedIndexChanged="Filter_SelectedIndexChanged"
             >
         </Picker>
         <ListView x:Name="ListWorkoutPlans" Grid.Row="2" Grid.Column="0"
