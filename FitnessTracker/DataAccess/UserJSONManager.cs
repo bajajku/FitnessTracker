@@ -29,13 +29,18 @@ namespace FitnessTracker.DataAccess
         };
         public void WriteAllUsers(List<User> userList)
         {
-            string userJson = JsonSerializer.Serialize(userList, _writeOptions);
-            File.WriteAllText(_filePath, userJson);    
+            using (FileStream writer = new FileStream(_filePath, FileMode.OpenOrCreate))
+            {
+                JsonSerializer.Serialize(writer, userList);
+            }
         }
         public List<User> ReadAllUsers()
         {
-            string userJson = File.ReadAllText(_filePath);
-            List<User> users = JsonSerializer.Deserialize<List<User>>(userJson, _readOptions);
+            List<User> users;
+            using (FileStream reader = new FileStream(_filePath, FileMode.Open))
+            {
+                users = JsonSerializer.Deserialize<List<User>>(reader);
+            }
             return users;
 
         }

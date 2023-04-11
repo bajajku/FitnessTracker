@@ -58,7 +58,6 @@
                 Grid.Column="1"
                 Text="{Binding Path=Bmi, StringFormat='BMI: {0}'}"
                 />
-
         </Grid>
         
     </Grid>
