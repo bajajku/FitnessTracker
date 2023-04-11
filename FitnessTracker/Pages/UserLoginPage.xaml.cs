@@ -79,15 +79,16 @@ public partial class UserLoginPage : ContentPage
             else
             {
                 //navigate to homepage
-                //UserHomePage _userHomePage = new UserHomePage();//parameter should be the fuckin uh, the user manager i think? cause the index of the user is the key for everything else.
-                //_userHomePage.BindingContext = _fitUserManager.Login(username, password); //binding context of user page is the goddamn user!!! as GOD intended!!
+               
                 User loggedInUser = _fitUserManager.Login(username, password);
                 if (loggedInUser == null)
                 {
                     PasswordEntry.Text = string.Empty;
                     throw new Exception("Username or Password is incorrect");
                 }
-                await Navigation.PushAsync(new UserHomePage(loggedInUser));
+                UserHomePage _userHomePage = new UserHomePage(loggedInUser);//parameter should be the fuckin uh, the user manager i think? cause the index of the user is the key for everything else.
+                _userHomePage.BindingContext = loggedInUser; //binding context of user page is the goddamn user!!! as GOD intended!!
+                await Navigation.PushAsync(_userHomePage);
             }
             
         }

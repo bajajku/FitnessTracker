@@ -70,9 +70,9 @@ namespace FitnessTracker.BusinessLogic
             set { _weight = value; }
         }
         //BMI
-        public float CalculateBMI()
+        public float Bmi
         {
-            return (Weight / (Height * Height));
+            get { return (Weight / (Height * Height)); }
         }
         public User(string username, string password, DateTime dob, float height, float weight)
         {
