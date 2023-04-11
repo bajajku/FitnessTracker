@@ -6,7 +6,7 @@
              BackgroundColor="Black">
     <ContentPage.Resources>
         <Style TargetType="Label">
-            <Setter Property="HorizontalOptions" Value="End"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
         <Style TargetType="Label" x:Key="Title">
@@ -19,7 +19,7 @@
         <Style TargetType="Button">
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
-            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="Grid.ColumnSpan" Value="0"/>
         </Style>
         <Style TargetType="Entry">
             <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
@@ -33,11 +33,17 @@
         </Style>
     </ContentPage.Resources>
     <Grid
-        RowDefinitions="*,4*">
+        RowDefinitions="*,4*"
+        ColumnDefinitions="*,4*">
+        <Button Text="Menu"
+                Grid.Row="0"
+                Grid.Column="0"
+                Clicked="MenuButtonClicked"/>
         <Grid
             ColumnDefinitions="*,*"
             RowDefinitions="*,*"
-            Grid.Row="0">
+            Grid.Row="0"
+            Grid.Column="1">
             <Label
                 Grid.Row="0"
                 Grid.Column="0"

@@ -10,4 +10,8 @@ public partial class UserHomePage : ContentPage
         InitializeComponent();
 		
 	}
+
+    private void MenuButtonClicked(object sender, EventArgs e)
+    {
+    }
 }
