@@ -21,50 +21,66 @@
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="Grid.ColumnSpan" Value="0"/>
         </Style>
-        <Style TargetType="Entry">
-            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
-            <Setter Property="VerticalOptions" Value="Center"/>
-            <Setter Property="MinimumWidthRequest" Value="200"/>
-            <Setter Property="MaximumWidthRequest" Value="500"/>
-        </Style>
         <Style TargetType="Entry" x:Key="PhysEntry">
             <Setter Property="MinimumWidthRequest" Value="100"/>
             <Setter Property="MaximumWidthRequest" Value="100"/>
         </Style>
     </ContentPage.Resources>
     <Grid
-        RowDefinitions="*,4*"
-        ColumnDefinitions="*,4*">
-        <Button Text="Menu"
-                Grid.Row="0"
-                Grid.Column="0"
-                Clicked="MenuButtonClicked"/>
+        RowDefinitions="*,*,5*"
+        ColumnDefinitions="*">
+        <Label
+            Text="{Binding Path=Username,StringFormat='Welcome {0}.'}"
+            Style="{StaticResource Title}"
+            Grid.Row="0"
+            Grid.Column="0"
+            />
         <Grid
             ColumnDefinitions="*,*"
-            RowDefinitions="*,*"
-            Grid.Row="0"
-            Grid.Column="1">
+            RowDefinitions="*,*,*"
+            Grid.Row="1"
+            Grid.Column="0"
+            BackgroundColor="Gray"
+            Padding="5,5,5,5"
+            Margin="80,0,80,0"
+            >
             <Label
                 Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                FontSize="Medium"
+                Text="User Info:"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+            <Label
+                Grid.Row="1"
                 Grid.Column="0"
                 Text="{Binding Path=Height, StringFormat='Height: {0}'}"
                 />
             <Label
-                Grid.Row="0"
+                Grid.Row="1"
                 Grid.Column="1"
                 Text="{Binding Path=Weight, StringFormat='Weight: {0}'}"
                 />
             <Label
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="0"
                 Text="{Binding Path=Dob, StringFormat='Date of Birth: {0}'}"
                 />
             <Label
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="1"
                 Text="{Binding Path=Bmi, StringFormat='BMI: {0}'}"
                 />
+
         </Grid>
-        
+        <Label
+            FontSize="Medium"
+            Text="My Workout Plan:"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            Grid.Row="2"
+            Grid.Column="0"/>
+
     </Grid>
 </ContentPage>
