@@ -1,6 +1,7 @@
 //using Android.OS;
 using Microsoft.Maui.Graphics.Text;
 using FitnessTracker.BusinessLogic;
+using FitnessTracker.DataAccess;
 //using Java.Lang;
 //using Android.Hardware.Lights;
 
@@ -10,7 +11,7 @@ public partial class UserLoginPage : ContentPage
 {
     FitUserManager _fitUserManager = new FitUserManager();
 
-    //IUserDataManager _userDataManager = new UserJsonManager(Path.Combine(FileSystem.Current.AppDataDirectory, "users.json"));
+    IUserDataManager _userDataManager = new UserJsonManager(Path.Combine(FileSystem.Current.AppDataDirectory, "users.json"));
     public UserLoginPage()
     {
         InitializeComponent();
@@ -48,7 +49,7 @@ public partial class UserLoginPage : ContentPage
             if (string.IsNullOrEmpty(WeightEntry.Text) == true || float.Parse(WeightEntry.Text) <= 0) throw new Exception("Weight must be greater than 0");
             float weight = float.Parse(WeightEntry.Text);
             _fitUserManager.AddUser(username, password, dob, height, weight);
-  //          _fitUserManager.SaveData(_userDataManager);
+            _fitUserManager.SaveData(_userDataManager);
         }
         catch (Exception N)
         {
@@ -87,7 +88,7 @@ public partial class UserLoginPage : ContentPage
                     throw new Exception("Username or Password is incorrect");
                 }
                 UserHomePage _userHomePage = new UserHomePage(loggedInUser);//parameter should be the fuckin uh, the user manager i think? cause the index of the user is the key for everything else.
-                _userHomePage.BindingContext = loggedInUser; //binding context of user page is the goddamn user!!! as GOD intended!!
+                _userHomePage.BindingContext = loggedInUser; //binding context of user page is the user!!!
                 await Navigation.PushAsync(_userHomePage);
             }
             
