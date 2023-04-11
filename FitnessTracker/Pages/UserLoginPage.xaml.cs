@@ -19,6 +19,15 @@ public partial class UserLoginPage : ContentPage
         TimeSpan ThirteenYears = new TimeSpan(4745, 0, 0, 0);
         MaximumDoB = MaximumDoB - ThirteenYears;
         DoBPicker.MaximumDate = MaximumDoB;
+        try
+        {
+            _fitUserManager.ReadData(_userDataManager);
+        }
+        catch (FileNotFoundException)
+        { 
+            _fitUserManager.SaveData(_userDataManager); //if no data is found, it will make blank users.json file in AppDataDirectory
+        }
+        
     }
 
     private void NewAccountCheckChanged(object sender, CheckedChangedEventArgs e)
@@ -89,7 +98,7 @@ public partial class UserLoginPage : ContentPage
                 }
                 UserHomePage _userHomePage = new UserHomePage(loggedInUser);//parameter should be the fuckin uh, the user manager i think? cause the index of the user is the key for everything else.
                 _userHomePage.BindingContext = loggedInUser; //binding context of user page is the user!!!
-                await Navigation.PushAsync(_userHomePage);
+                await Navigation.PushAsync(_userHomePage); //do not log in when a user like that already exists.
             }
             
         }
