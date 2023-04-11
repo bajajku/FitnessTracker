@@ -44,4 +44,6 @@ public partial class AddWorkoutPlan : ContentPage
             ListWorkoutPlans.ItemsSource = workouts;
         }
     }
+
+
 }
