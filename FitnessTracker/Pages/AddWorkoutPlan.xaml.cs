@@ -1,10 +1,10 @@
 namespace FitnessTracker.Pages;
 using BusinessLogic;
-using FitnessTracker.Repository;
+using FitnessTracker.DataAccess;
 
-public partial class WorkoutPlan : ContentPage
+public partial class AddWorkoutPlan : ContentPage
 {
-	JsonReader jsonReader = new JsonReader();
+	WorkoutJsonReader jsonReader = new WorkoutJsonReader();
 	List<Workout> workouts;
     Workout _selectedWorkout;
     List<string> tags = new List<string>();
@@ -20,7 +20,7 @@ public partial class WorkoutPlan : ContentPage
         }
     }
 
-    public WorkoutPlan()
+    public AddWorkoutPlan()
 	{
 		InitializeComponent();
 		workouts = jsonReader.Workouts;

@@ -8,6 +8,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new NavigationPage(new WorkoutPlan());
+		MainPage = new NavigationPage(new AddWorkoutPlan());
 	}
 }

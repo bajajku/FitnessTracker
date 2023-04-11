@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FitnessTracker.Pages.WorkoutPlan"
+             x:Class="FitnessTracker.Pages.AddWorkoutPlan"
              Title="WorkoutPlan">
     <Grid RowDefinitions="*,*,8*,*" ColumnDefinitions="*,*">
         <Label Text="Add Workout Plans" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center"
