@@ -8,7 +8,7 @@
 
     <ShellContent
         Title="Login"
-        ContentTemplate="{DataTemplate local:WorkoutPlan}"
+        ContentTemplate="{DataTemplate local:AddWorkoutPlan}"
         Route="MainPage" />
 
 </Shell>

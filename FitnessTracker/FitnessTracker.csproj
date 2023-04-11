@@ -84,6 +84,9 @@
 	  <Compile Update="Pages\UserHomePage.xaml.cs">
 	    <DependentUpon>UserHomePage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\AddWorkoutPlan.xaml.cs">
+	    <DependentUpon>AddWorkoutPlan.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -93,7 +96,7 @@
 	  <MauiXaml Update="Pages\UserLoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\WorkoutPlan.xaml">
+	  <MauiXaml Update="Pages\AddWorkoutPlan.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
