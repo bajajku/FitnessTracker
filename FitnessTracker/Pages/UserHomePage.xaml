@@ -74,13 +74,16 @@
                 />
 
         </Grid>
-        <Label
+        <VerticalStackLayout
+            Grid.Row="2"
+            Grid.Column="0">
+            <Label
             FontSize="Medium"
             Text="My Workout Plan:"
             HorizontalOptions="Center"
-            VerticalOptions="Start"
-            Grid.Row="2"
-            Grid.Column="0"/>
+            VerticalOptions="Start"/>
+        </VerticalStackLayout>
+
 
     </Grid>
 </ContentPage>

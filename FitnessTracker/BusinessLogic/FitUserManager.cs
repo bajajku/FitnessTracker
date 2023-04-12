@@ -1,4 +1,5 @@
-﻿using FitnessTracker.DataAccess;
+﻿
+using FitnessTracker.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
+//Author: seb
     public class FitUserManager
     {
         private List<User> _users = new List<User>();

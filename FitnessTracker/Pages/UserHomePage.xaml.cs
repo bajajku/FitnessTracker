@@ -11,7 +11,5 @@ public partial class UserHomePage : ContentPage
 		
 	}
 
-    private void MenuButtonClicked(object sender, EventArgs e)
-    {
-    }
+
 }

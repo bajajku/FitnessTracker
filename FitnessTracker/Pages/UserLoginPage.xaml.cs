@@ -6,7 +6,7 @@ using FitnessTracker.DataAccess;
 //using Android.Hardware.Lights;
 
 namespace FitnessTracker.Pages;
-
+//Author: seb
 public partial class UserLoginPage : ContentPage
 {
     FitUserManager _fitUserManager = new FitUserManager();

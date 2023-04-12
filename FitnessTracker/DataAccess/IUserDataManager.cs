@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FitnessTracker.DataAccess
-{
+{//Author: Seb
     public interface IUserDataManager
     {
         //read
