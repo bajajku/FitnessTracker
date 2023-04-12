@@ -10,6 +10,7 @@ using FitnessTracker.BusinessLogic;
 
 namespace FitnessTracker.DataAccess
 {
+    //Author: seb
     internal class UserJsonManager : IUserDataManager
     {
         string _filePath;
