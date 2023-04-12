@@ -39,7 +39,7 @@ public partial class UserLoginPage : ContentPage
     private void OnNextClicked(object sender, EventArgs e)
     {
         if (NewAccount.IsChecked) NewUserFromEntry();
-        LoginFromEntry(); //always tries to login, if newaccount is checked, it will create a user FIRST
+        //always tries to login, if newaccount is checked, it will create a user FIRST
 
     }
 
@@ -59,6 +59,7 @@ public partial class UserLoginPage : ContentPage
             float weight = float.Parse(WeightEntry.Text);
             _fitUserManager.AddUser(username, password, dob, height, weight);
             _fitUserManager.SaveData(_userDataManager);
+            LoginFromEntry();
         }
         catch (Exception N)
         {
