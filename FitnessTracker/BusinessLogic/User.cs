@@ -73,7 +73,7 @@ namespace FitnessTracker.BusinessLogic
         //BMI
         public float Bmi
         {
-            get { return (Weight / (Height * Height)); }
+            get { return ((float)(Weight / Math.Pow(Height/100,2))); }
         }
         public User(string username, string password, DateTime dob, float height, float weight)
         {

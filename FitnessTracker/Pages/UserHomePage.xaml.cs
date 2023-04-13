@@ -27,10 +27,24 @@ public partial class UserHomePage : ContentPage
 			_nutritionTracker = _nutritionManager.CreateNewTracker(user.Username);
         }
 		_nutritionTracker.DateRefresh();//if nutrition tracker objects date doesnt match, current date, reset the values to 0 (everything except the username) and update to current date
-        
+										//Set the labels with the users personal information
+		TitleLabel.Text = $"Welcome {user.Username}.";
+		HeightLabel.Text = $"Height: {user.Height}";
+		WeightLabel.Text = $"Weight: {user.Weight}";
+        DobLabel.Text = $"Date of Birth: {user.Dob}";
+		BmiLabel.Text = $"BMI: {user.Bmi}";
 
-		
-	}
+		this.BindingContext= _nutritionTracker;
 
+    }
 
+    private void SubmitNewNutritionEntry(object sender, EventArgs e)
+    {
+		int calories = int.Parse(CalorieEntry.Text);
+        int fat = int.Parse(FatEntry.Text);
+		int carbs = int.Parse(CarbsEntry.Text);
+		int protein = int.Parse(ProteinEntry.Text);
+		int sodium = int.Parse(SodiumEntry.Text);
+		_nutritionTracker.UpdateNutrition(calories, fat,carbs, protein, sodium);
+    }
 }
