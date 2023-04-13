@@ -58,7 +58,7 @@ public partial class UserLoginPage : ContentPage
             if (string.IsNullOrEmpty(WeightEntry.Text) == true || float.Parse(WeightEntry.Text) <= 0) throw new Exception("Weight must be greater than 0");
             float weight = float.Parse(WeightEntry.Text);
             _fitUserManager.AddUser(username, password, dob, height, weight);
-            _fitUserManager.SaveData(_userDataManager);
+                _fitUserManager.SaveData(_userDataManager);
         }
         catch (Exception N)
         {

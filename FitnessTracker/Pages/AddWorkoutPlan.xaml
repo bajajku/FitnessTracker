@@ -82,7 +82,7 @@
             Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center">
 
             <Button Text="Add Plan" FontSize="Medium" Margin="10,10,10,10" 
-                   />
+                   Clicked="AddPlanClicked"/>
             <Button Text="Back to Home" FontSize="Medium" Margin="10,10,10,10"/>
 
         </HorizontalStackLayout>

@@ -4,7 +4,6 @@ using FitnessTracker.DataAccess;
 
 public partial class AddWorkoutPlan : ContentPage
 {
-	WorkoutJsonReader jsonReader = new WorkoutJsonReader();
 	List<Workout> workouts;
     Workout _selectedWorkout;
     List<string> tags = new List<string>();
@@ -23,7 +22,7 @@ public partial class AddWorkoutPlan : ContentPage
     public AddWorkoutPlan()
 	{
 		InitializeComponent();
-		workouts = jsonReader.Workouts;
+		workouts = WorkoutJsonReader.Workouts;
 		ListWorkoutPlans.ItemsSource = workouts;
         tags.Add("All");
         tags.AddRange(string.Join(",", workouts.Select(x=> string.Join(",",x.Tags)).ToList()).Split(",").ToList().Distinct().ToList());
@@ -45,5 +44,17 @@ public partial class AddWorkoutPlan : ContentPage
         }
     }
 
-
+    private async void AddPlanClicked(object sender, EventArgs e)
+    {
+        Workout selectedWorkout = (Workout)ListWorkoutPlans.SelectedItem;
+        if(selectedWorkout == null)
+        {
+            await DisplayAlert("Selection Error","No Workout is Selected","Ok");
+        }
+        else
+        {
+            WorkoutJsonReader.WriteWorkoutPlan(selectedWorkout.Name, "Kunal");
+            //await Navigation.PushAsync(new NewPage1(selectedWorkout));
+        }
+    }
 }
