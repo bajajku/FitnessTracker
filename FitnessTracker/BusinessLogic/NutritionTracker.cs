@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
-    internal class NutritionTracker
+    public class NutritionTracker
     {
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            init { _userName = value; }
+        }
+
         private int _calories;
         public int Calories
         {
@@ -45,7 +52,21 @@ namespace FitnessTracker.BusinessLogic
             get { return _date; }
             set { _date = value; }
         }
-        
-
+        public void UpdateNutrition(int fat, int carbs, int protien, int sodium)
+        {
+            _fat += fat;
+            _carbs += carbs;
+            _protien += protien;
+            _sodium += sodium;
+        }
+        public NutritionTracker(string userName)
+        {
+            _userName= userName;
+            _fat = 0;
+            _carbs = 0;
+            _protien = 0;
+            _sodium = 0;
+            _date= DateTime.Now;
+        }
     }
 }
