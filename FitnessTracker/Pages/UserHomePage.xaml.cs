@@ -47,4 +47,8 @@ public partial class UserHomePage : ContentPage
 		int sodium = int.Parse(SodiumEntry.Text);
 		_nutritionTracker.UpdateNutrition(calories, fat,carbs, protein, sodium);
     }
+    private async void ViewWorkoutClicked(object sender, EventArgs e)
+    {
+		await Navigation.PushAsync(new AddWorkoutPlan()); //
+    }
 }

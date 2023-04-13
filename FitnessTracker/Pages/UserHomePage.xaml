@@ -45,12 +45,11 @@
         <Style TargetType="Button">
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
-            <Setter Property="Grid.ColumnSpan" Value="0"/>
         </Style>
     </ContentPage.Resources>
     
     <Grid
-        RowDefinitions="*,2*,3*"
+        RowDefinitions="*,2*,3*,*"
         ColumnDefinitions="*">
         <Label
             x:Name="TitleLabel"
@@ -240,6 +239,12 @@
             VerticalOptions="Start"/>
         </VerticalStackLayout>-->
 
-
+        <Button
+            Text="View my Workout Plan"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Clicked="ViewWorkoutClicked"
+            />
     </Grid>
 </ContentPage>

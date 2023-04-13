@@ -40,7 +40,7 @@ public partial class UserLoginPage : ContentPage
     {
         if (NewAccount.IsChecked) NewUserFromEntry();
         //always tries to login, if newaccount is checked, it will create a user FIRST
-
+        else LoginFromEntry();
     }
 
     public void NewUserFromEntry()
