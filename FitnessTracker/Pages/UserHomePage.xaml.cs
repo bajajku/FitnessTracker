@@ -34,7 +34,7 @@ public partial class UserHomePage : ContentPage
         DobLabel.Text = $"Date of Birth: {user.Dob}";
 		BmiLabel.Text = $"BMI: {user.Bmi}";
 
-		this.BindingContext= _nutritionTracker;
+		BindingContext= _nutritionTracker;
 
     }
 
