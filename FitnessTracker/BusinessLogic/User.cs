@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
+    //Author: seb
     public class User
     {
         //ACCT INFO

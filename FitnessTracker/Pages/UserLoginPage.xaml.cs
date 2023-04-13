@@ -6,7 +6,7 @@ using FitnessTracker.DataAccess;
 //using Android.Hardware.Lights;
 
 namespace FitnessTracker.Pages;
-
+//Author: seb
 public partial class UserLoginPage : ContentPage
 {
     FitUserManager _fitUserManager = new FitUserManager();
@@ -39,7 +39,7 @@ public partial class UserLoginPage : ContentPage
     private void OnNextClicked(object sender, EventArgs e)
     {
         if (NewAccount.IsChecked) NewUserFromEntry();
-        LoginFromEntry(); //always tries to login, if newaccount is checked, it will create a user FIRST
+        //always tries to login, if newaccount is checked, it will create a user FIRST
 
     }
 
@@ -58,7 +58,8 @@ public partial class UserLoginPage : ContentPage
             if (string.IsNullOrEmpty(WeightEntry.Text) == true || float.Parse(WeightEntry.Text) <= 0) throw new Exception("Weight must be greater than 0");
             float weight = float.Parse(WeightEntry.Text);
             _fitUserManager.AddUser(username, password, dob, height, weight);
-                _fitUserManager.SaveData(_userDataManager);
+            _fitUserManager.SaveData(_userDataManager);
+            LoginFromEntry();
         }
         catch (Exception N)
         {
