@@ -27,18 +27,19 @@ namespace FitnessTracker.BusinessLogic
             return null;
         }
 
-        public void CreateNewTracker(string username)
+        public NutritionTracker CreateNewTracker(string username)
         {
             NutritionTracker newTracker = new NutritionTracker(username);
             NutritionTrackers.Add(newTracker);
+            return newTracker;
         }
 
-        public void SaveData(INutritionDataManager dataManager)
+        public void SaveAllNutritionTrackers(INutritionDataManager dataManager)
         {
             dataManager.WriteAllNutritionTrackers(NutritionTrackers);
         }
 
-        public void WriteData(INutritionDataManager dataManager)
+        public void ReadAllNutritionTrackers(INutritionDataManager dataManager)
         {
             NutritionTrackers = dataManager.ReadAllNutritionTrackers();
         }

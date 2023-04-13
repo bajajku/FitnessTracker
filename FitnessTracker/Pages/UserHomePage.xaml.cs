@@ -7,22 +7,26 @@ public partial class UserHomePage : ContentPage
 {
 	NutritionManager _nutritionManager = new NutritionManager();
 	INutritionDataManager _nutritionDataManager = new NutritionJsonManager(Path.Combine(FileSystem.Current.AppDataDirectory,"nutrition.json"));
+	NutritionTracker _nutritionTracker;
 	public UserHomePage(User user)
 	{
         //BindingContext = user;
         InitializeComponent();
-        //When homepage runs, load the users nutritional tracker
 		try
 		{
-			_nutritionManager.
+			_nutritionManager.ReadAllNutritionTrackers(_nutritionDataManager); //tries to load from file
 		}
-        //if the nutrition tracker doesnt exist, create the nutrition tracker and bind it to something
-        if (_nutritionManager.GetNutritionTracker(user.Username) == null)
+		catch (FileNotFoundException)
 		{
-			_nutritionManager.CreateNewTracker(user.Username);
+			_nutritionManager.SaveAllNutritionTrackers(_nutritionDataManager); //if no file found, creates new one. 
 		}
 		
-		//if nutrition tracker objects date doesnt match, current date, delete it and make a new one -- this stuff is a maybe. focus on other stuff first
+		_nutritionTracker = _nutritionManager.GetNutritionTracker(user.Username); //When homepage runs, load the users nutritional tracker
+        if (_nutritionManager.GetNutritionTracker(user.Username) == null)//if the nutrition tracker doesnt exist, create the nutrition tracker and bind it to something
+        {
+			_nutritionTracker = _nutritionManager.CreateNewTracker(user.Username);
+        }
+		_nutritionTracker.DateRefresh();//if nutrition tracker objects date doesnt match, current date, reset the values to 0 (everything except the username) and update to current date
         
 
 		
