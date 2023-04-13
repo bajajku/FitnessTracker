@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.DataAccess
 {
-    internal class NutritonJsonManager
+    internal class NutritonJsonManager : INutritionDataManager
     {
         string _filePath;
 

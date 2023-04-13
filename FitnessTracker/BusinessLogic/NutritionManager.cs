@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.BusinessLogic
 {
+    //Author: Seb
     public class NutritionManager
     {
         private List<NutritionTracker>_nutritionTrackers= new List<NutritionTracker>();

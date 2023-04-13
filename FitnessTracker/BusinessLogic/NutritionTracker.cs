@@ -59,6 +59,17 @@ namespace FitnessTracker.BusinessLogic
             _protien += protien;
             _sodium += sodium;
         }
+        public void DateRefresh()
+        {
+            if(_date.Day != (DateTime.Now).Day)
+            {
+                Fat = 0;
+                Carbs = 0;
+                Protien = 0;
+                Sodium = 0;
+                Date = DateTime.Now;
+            }
+        }
         public NutritionTracker(string userName)
         {
             _userName= userName;
