@@ -1,0 +1,520 @@
+{
+  "Workout": [
+    {
+      "name": "Full-Body Workout",
+      "description": "A Full body home workout routine, which engages all the primary muscle groups.",
+      "difficultyLevel": "Advanced",
+      "duration": "60",
+      "tags": [ "Build muscle", "Body Weight", "Endurance", "Home workout", "Advanced" ],
+      "exercises": [
+        {
+          "name": "Push-Ups",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "pushups.gif"
+        },
+        {
+          "name": "Pull-Ups",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Rhomboids",
+          "image": "pullups.gif"
+        },
+        {
+          "name": "Squats",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "homesquats.gif"
+        },
+        {
+          "name": "Plank",
+          "sets": 3,
+          "reps": 30,
+          "primaryMuscle": "Abdominals",
+          "secondaryMuscle": "Obliques",
+          "image": "plank.gif"
+        },
+        {
+          "name": "Dips",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Triceps",
+          "secondaryMuscle": "Chest",
+          "image": "dips.gif"
+
+        }
+      ]
+
+    },
+    {
+      "name": "Full-Body Circuit",
+      "description": "A Full body workout routine, which engages all the primary muscle groups.",
+      "difficultyLevel": "Intermmediate",
+      "duration": "60",
+      "tags": [ "Build muscle", "Strength", "Endurance", "Weight training", "Intermmediate" ],
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "benchpress.gif"
+        },
+        {
+          "name": "Lat-PullDown",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Rhomboids",
+          "image": "latPulldown.gif"
+        },
+        {
+          "name": "Barbell Squats",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "barbellSquats.gif"
+        },
+        {
+          "name": "Crunches",
+          "sets": 3,
+          "reps": 15,
+          "primaryMuscle": "Abdominals",
+          "secondaryMuscle": "Obliques",
+          "image": "crunches.gif"
+        },
+        {
+          "name": "Shoulder Press",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Shoulders",
+          "secondaryMuscle": "Traps",
+          "image": "shoulderpress.gif"
+        }
+      ]
+
+    },
+    {
+      "name": "Leg Workout",
+      "description": "A Leg workout routine, which engages all the primary Leg muscles.",
+      "difficultyLevel": "Advanced",
+      "duration": "60",
+      "tags": [ "Build muscle", "Strength", "Weight training", "Advanced" ],
+      "exercises": [
+        {
+          "name": "Barbell Squats",
+          "sets": 4,
+          "reps": 12,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "barbellSquats.gif"
+        },
+        {
+          "name": "Leg Press",
+          "sets": 3,
+          "reps": 15,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "legpress.gif"
+        },
+        {
+          "name": "Leg Extension",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "legextension.gif"
+        },
+        {
+          "name": "Romanian Deadlift",
+          "sets": 3,
+          "reps": 12,
+          "primaryMuscle": "Hamstrings",
+          "secondaryMuscle": "Quads",
+          "image": "romaniandeadlift.gif"
+        },
+        {
+          "name": "Calve Raise",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Calves",
+          "secondaryMuscle": "Hamstrings",
+          "image": "calveraises.gif"
+        }
+      ]
+
+    },
+    {
+      "name": "Pull Workout",
+      "description": "A Pull workout routine, which engages all the primary pulling muscles.",
+      "difficultyLevel": "Intermmediate",
+      "duration": "60",
+      "tags": [ "Build muscle", "Strength", "Weight training", "Intermmediate" ],
+      "exercises": [
+        {
+          "name": "Lat-PullDown",
+          "sets": 4,
+          "reps": 12,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Rhomboids",
+          "image": "latPulldown.gif"
+        },
+        {
+          "name": "Bicep Curls",
+          "sets": 3,
+          "reps": 15,
+          "primaryMuscle": "Biceps",
+          "secondaryMuscle": "ForeArms",
+          "image": "bicepcurls.gif"
+        },
+        {
+          "name": "Pull-Ups",
+          "sets": 4,
+          "reps": 8,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Rhomboids",
+          "image": "pullups.gif"
+        },
+        {
+          "name": "Deadlift",
+          "sets": 3,
+          "reps": 10,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Quads",
+          "image": "deadlift.gif"
+        },
+        {
+          "name": "Preacher",
+          "sets": 4,
+          "reps": 12,
+          "primaryMuscle": "Biceps",
+          "secondaryMuscle": "ForeArms",
+          "image": "preacher.gif"
+        }
+      ]
+
+    },
+    {
+      "name": "Push Workout",
+      "description": "A Push workout routine, which engages all the primary Pushing muscles.",
+      "difficultyLevel": "Intermmediate",
+      "duration": "60",
+      "tags": [ "Build muscle", "Strength", "Weight training", "Intermmediate" ],
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "sets": 4,
+          "reps": 12,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "benchpress.gif"
+        },
+        {
+          "name": "Tricep Pushdown",
+          "sets": 3,
+          "reps": 15,
+          "primaryMuscle": "Triceps",
+          "secondaryMuscle": "ForeArms",
+          "image": "tricepPushdown.gif"
+        },
+        {
+          "name": "Shoulder Press",
+          "sets": 4,
+          "reps": 10,
+          "primaryMuscle": "Shoulders",
+          "secondaryMuscle": "Traps",
+          "image": "shoulderpress.gif"
+        },
+        {
+          "name": "Lateral Raises",
+          "sets": 3,
+          "reps": 12,
+          "primaryMuscle": "Shoulders",
+          "secondaryMuscle": "Traps",
+          "image": "lateralraises.gif"
+        },
+        {
+          "name": "Incline Bench",
+          "sets": 4,
+          "reps": 10,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "inclineBench.gif"
+        }
+      ]
+
+    },
+    {
+      "name": "Quick Cardio",
+      "description": "A Quick Cardio workout routine, which will help burn more calories in less time.",
+      "difficultyLevel": "Beginner",
+      "duration": "15",
+      "tags": [ "Cardio", "Fat Burning", "Endurance", "Home workout", "Beginner" ],
+      "exercises": [
+        {
+          "name": "Jumping Jacks",
+          "sets": 4,
+          "reps": 30,
+          "primaryMuscle": "Cardiac",
+          "secondaryMuscle": "Quads",
+          "image": "jumpingjacks.gif"
+
+
+        },
+        {
+          "name": "Burpees",
+          "sets": 3,
+          "reps": 15,
+          "primaryMuscle": "Cardiac",
+          "secondaryMuscle": "Chest",
+          "image": "burpees.gif"
+        },
+        {
+          "name": "Plank",
+          "sets": 3,
+          "reps": 45,
+          "primaryMuscle": "Abdominals",
+          "secondaryMuscle": "Obliques",
+          "image": "plank.gif"
+        }
+      ]
+
+    },
+    {
+      "name": "Full Body Cardio Workout",
+      "description": "A Full Body Cardio Workout routine, which is best to have a mix of both muscle building and fat burning.",
+      "difficultyLevel": "Advanced",
+      "duration": "60",
+      "tags": [ "Fat Burning", "Cardio", "Endurance", "Build muscle", "Advanced" ],
+      "exercises": [
+        {
+          "name": "Barbell Squats",
+          "sets": 4,
+          "reps": 12,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "barbellSquats.gif"
+
+        },
+        {
+          "name": "Bench Press",
+          "sets": 3,
+          "reps": 15,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "benchpress.gif"
+        },
+        {
+          "name": "Shoulder Press",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Shoulders",
+          "secondaryMuscle": "Traps",
+          "image": "shoulderpress.gif"
+        },
+        {
+          "name": "Deadlift",
+          "sets": 3,
+          "reps": 12,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Quads",
+          "image": "deadlift.gif"
+        },
+        {
+          "name": "Sprint",
+          "sets": 4,
+          "reps": 30,
+          "primaryMuscle": "Cardiac",
+          "secondaryMuscle": "Quads",
+          "image": "sprint.gif"
+        }
+      ]
+
+    },
+    {
+      "name": "Beginner Calisthenics",
+      "description": "A Beginner focused calisthenics Workout routine, which is best for new fitness enthusiasts looking to get into Calsithenics",
+      "difficultyLevel": "Beginner",
+      "duration": "30",
+      "tags": [ "Fat Burning", "Cardio", "Home workout", "Body Weight", "Beginner" ],
+      "exercises": [
+        {
+          "name": " Wall Push-Ups",
+          "sets": 3,
+          "reps": 12,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "wallpushups.gif"
+        },
+        {
+          "name": "Resistance Band Pull-Ups",
+          "sets": 3,
+          "reps": 8,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Rhomboids",
+          "image": "rbpullups.gif"
+        },
+        {
+          "name": "Squats",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "homesquats.gif"
+        },
+        {
+          "name": "Plank",
+          "sets": 3,
+          "reps": 30,
+          "primaryMuscle": "Abdominals",
+          "secondaryMuscle": "Obliques",
+          "image": "plank.gif"
+        },
+        {
+          "name": "Dips",
+          "sets": 3,
+          "reps": 8,
+          "primaryMuscle": "Triceps",
+          "secondaryMuscle": "Chest",
+          "image": "dips.gif"
+
+        }
+      ]
+
+    },
+    {
+      "name": "Intermmediate Calisthenics",
+      "description": "An Intermmediate calisthenics Workout routine, which is best for somewhat experienced Calsithenics enthusiasts",
+      "difficultyLevel": "Intermmediate",
+      "duration": "45",
+      "tags": [ "Fat Burning", "Cardio", "Home workout", "Body Weight", "Intermmediate" ],
+      "exercises": [
+        {
+          "name": "Push-Ups",
+          "sets": 3,
+          "reps": 12,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "pushups.gif"
+        },
+        {
+          "name": "Pull-Ups",
+          "sets": 3,
+          "reps": 8,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Rhomboids",
+          "image": "pullups.gif"
+        },
+        {
+          "name": "Squats",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "homesquats.gif"
+        },
+        {
+          "name": "Plank",
+          "sets": 3,
+          "reps": 30,
+          "primaryMuscle": "Abdominals",
+          "secondaryMuscle": "Obliques",
+          "image": "plank.gif"
+        },
+        {
+          "name": "Dips",
+          "sets": 5,
+          "reps": 10,
+          "primaryMuscle": "Triceps",
+          "secondaryMuscle": "Chest",
+          "image": "dips.gif"
+
+        },
+        {
+          "name": "Pike Push-Ups",
+          "sets": 3,
+          "reps": 12,
+          "primaryMuscle": "Shoulders",
+          "secondaryMuscle": "Chest",
+          "image": "pushups.gif"
+        }
+      ]
+
+    },
+    {
+      "name": "Advanced Calisthenics",
+      "description": "An Advanced calisthenics Workout routine, which is best for experienced Calsithenics athletes",
+      "difficultyLevel": "Advanced",
+      "duration": "90",
+      "tags": [ "Fat Burning", "Cardio", "Home workout", "Build muscle", "Body Weight", "Advanced" ],
+      "exercises": [
+        {
+          "name": "Push-Ups",
+          "sets": 5,
+          "reps": 20,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "pushups.gif"
+        },
+        {
+          "name": "Pull-Ups",
+          "sets": 5,
+          "reps": 10,
+          "primaryMuscle": "Lats",
+          "secondaryMuscle": "Rhomboids",
+          "image": "pullups.gif"
+        },
+        {
+          "name": "Squats",
+          "sets": 5,
+          "reps": 15,
+          "primaryMuscle": "Quads",
+          "secondaryMuscle": "Hamstrings",
+          "image": "homesquats.gif"
+        },
+        {
+          "name": "Plank",
+          "sets": 3,
+          "reps": 30,
+          "primaryMuscle": "Abdominals",
+          "secondaryMuscle": "Obliques",
+          "image": "plank.gif"
+        },
+        {
+          "name": "Dips",
+          "sets": 5,
+          "reps": 20,
+          "primaryMuscle": "Triceps",
+          "secondaryMuscle": "Chest",
+          "image": "dips.gif"
+
+        },
+        {
+          "name": "Pike Push-Ups",
+          "sets": 4,
+          "reps": 15,
+          "primaryMuscle": "Shoulders",
+          "secondaryMuscle": "Chest",
+          "image": "pushups.gif"
+        },
+        {
+          "name": "Archer Push Ups",
+          "sets": 4,
+          "reps": 12,
+          "primaryMuscle": "Chest",
+          "secondaryMuscle": "Triceps",
+          "image": "archerpushups.gif"
+        }
+      ]
+
+    }
+
+  ]
+}

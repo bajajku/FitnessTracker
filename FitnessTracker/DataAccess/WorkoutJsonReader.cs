@@ -12,7 +12,7 @@ namespace FitnessTracker.DataAccess
     public class WorkoutJsonReader
     {
 
-        public List<Workout> Workouts { get { return ReadFromWorkoutJson(); } }
+        public static List<Workout> Workouts { get { return ReadFromWorkoutJson(); } }
         public static List<Workout> ReadFromWorkoutJson()
         {
             var workouts = new List<Workout>();
@@ -44,6 +44,29 @@ namespace FitnessTracker.DataAccess
             }
             return workouts;
 
+        }
+
+        public static List<WorkoutPlanViewModel> ReadWorkoutPlan()
+        {
+            List<WorkoutPlanViewModel> wpvm;
+            using (FileStream reader = new FileStream(@"C:\Users\risha\Documents\Sem2\Prog\FitnessTracker\FitnessTracker\Resources\Raw\WorkoutPlans.json", FileMode.Open))
+            {
+                wpvm = JsonSerializer.Deserialize<List<WorkoutPlanViewModel>>(reader);
+            }
+            return wpvm;
+        }
+        public static void WriteWorkoutPlan(string workoutName, string userName)
+        {
+
+            List<WorkoutPlanViewModel> workoutPlans = ReadWorkoutPlan();
+
+            var index = workoutPlans.FindIndex(x => x.UserName == userName);
+            workoutPlans[index].Workouts.Add(workoutName);
+
+            using (FileStream writer = new FileStream(@"C:\Users\risha\Documents\Sem2\Prog\FitnessTracker\FitnessTracker\Resources\Raw\WorkoutPlans.json", FileMode.Create, FileAccess.ReadWrite))
+            {
+                JsonSerializer.Serialize(writer, workoutPlans);
+            }
         }
     }
 }

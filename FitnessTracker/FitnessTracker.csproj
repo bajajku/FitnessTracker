@@ -73,6 +73,8 @@
 	  <None Remove="Resources\Images\sprint.gif" />
 	  <None Remove="Resources\Images\triceppushdown.gif" />
 	  <None Remove="Resources\Raw\users.json" />
+	  <None Remove="Resources\Raw\Workout.json" />
+	  <None Remove="Resources\Raw\WorkoutPlans.json" />
 	</ItemGroup>
 
 	<ItemGroup>
