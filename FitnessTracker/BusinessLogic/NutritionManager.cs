@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FitnessTracker.DataAccess;
 
 namespace FitnessTracker.BusinessLogic
 {
@@ -30,6 +31,16 @@ namespace FitnessTracker.BusinessLogic
         {
             NutritionTracker newTracker = new NutritionTracker(username);
             NutritionTrackers.Add(newTracker);
+        }
+
+        public void SaveData(INutritionDataManager dataManager)
+        {
+            dataManager.WriteAllNutritionTrackers(NutritionTrackers);
+        }
+
+        public void WriteData(INutritionDataManager dataManager)
+        {
+            NutritionTrackers = dataManager.ReadAllNutritionTrackers();
         }
     }
 }
