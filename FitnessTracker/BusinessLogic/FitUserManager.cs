@@ -37,7 +37,7 @@ namespace FitnessTracker.BusinessLogic
                 int userId = Users.Count() + 1;
                 User newUser = new User(username, password, dob, height, weight);
                 Users.Add(newUser);
-                Login(username, password);
+                //Login(username, password);
             }
             else throw new Exception($"User with name {username} already exists");
         }
