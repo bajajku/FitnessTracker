@@ -42,7 +42,7 @@ namespace FitnessTracker.DataAccess
                     Name = data.GetProperty("name").GetString(),
                     Description = data.GetProperty("description").GetString(),
                     DifficultyLevel = (DifficultyLevel)Enum.Parse(typeof(DifficultyLevel), data.GetProperty("difficultyLevel").GetString(), ignoreCase: true),
-                    Duration = int.Parse(data.GetProperty("duration").GetString()),
+                    //Duration = int.Parse(data.GetProperty("duration").GetString()),
                     Tags = JsonSerializer.Deserialize<List<string>>(data.GetProperty("tags").GetRawText()),
                     Exercises = JsonSerializer.Deserialize<List<Exercise>>(data.GetProperty("exercises").GetRawText())
                 });

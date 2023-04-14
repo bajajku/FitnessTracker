@@ -5,6 +5,7 @@ namespace FitnessTracker.Pages;
 
 public partial class UserHomePage : ContentPage
 {
+	//Au
 	NutritionManager _nutritionManager = new NutritionManager();
 	INutritionDataManager _nutritionDataManager = new NutritionJsonManager(Path.Combine(FileSystem.Current.AppDataDirectory,"nutrition.json"));	NutritionTracker _nutritionTracker;
 	User _user;
@@ -36,18 +37,38 @@ public partial class UserHomePage : ContentPage
 		BmiLabel.Text = $"BMI: {user.Bmi}";
 
 		BindingContext= _nutritionTracker;
-
     }
 
     private void SubmitNewNutritionEntry(object sender, EventArgs e)
     {
-		int calories = int.Parse(CalorieEntry.Text);
-        int fat = int.Parse(FatEntry.Text);
-		int carbs = int.Parse(CarbsEntry.Text);
-		int protein = int.Parse(ProteinEntry.Text);
-		int sodium = int.Parse(SodiumEntry.Text);
-		_nutritionTracker.UpdateNutrition(calories, fat,carbs, protein, sodium);
-		_nutritionManager.SaveAllNutritionTrackers(_nutritionDataManager);
+		int calories;
+		int fat;
+		int carbs;
+		int protein;
+		int sodium;
+
+        try
+		{
+            calories = int.Parse(CalorieEntry.Text);
+            fat = int.Parse(FatEntry.Text);
+            carbs = int.Parse(CarbsEntry.Text);
+            protein = int.Parse(ProteinEntry.Text);
+			sodium = int.Parse(SodiumEntry.Text);
+            _nutritionTracker.UpdateNutrition(calories, fat, carbs, protein, sodium);
+			
+            _nutritionManager.SaveAllNutritionTrackers(_nutritionDataManager);
+
+        }
+		catch (ArgumentNullException)
+		{
+			DisplayAlert("Oops!", "You must enter a value for all fields", "Ok");
+		}
+		finally
+		{
+			BindingContext = null; //yeah i know im not supposed to do it like this but i cant figure out another way
+			BindingContext = _nutritionTracker;
+        }
+
     }
     private async void BrowseWorkoutsClicked(object sender, EventArgs e)
     {
