@@ -7,12 +7,13 @@ namespace FitnessTracker.Pages;
 public partial class MyWorkoutPlans : ContentPage
 {
 	string _userName;
-	public MyWorkoutPlans(string username)
+    IWorkoutManager workoutManager = new WorkoutJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "WorkoutPlans.json"));
+    public MyWorkoutPlans(string username)
 	{
 		InitializeComponent();
 		_userName = username;
-		var workoutPlan = WorkoutJsonReader.ReadWorkoutPlan().Where(x=>x.UserName == _userName).FirstOrDefault();
-		List<Workout> listOfWorkouts = WorkoutJsonReader.ReadFromWorkoutJson();
+		var workoutPlan = workoutManager.ReadWorkoutPlan().Where(x=>x.UserName == _userName).FirstOrDefault();
+		List<Workout> listOfWorkouts = workoutManager.ReadFromWorkoutJson();
 		List<Workout> myPlan = new List<Workout>();
 
 		try

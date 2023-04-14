@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.DataAccess
 {
-    public class WorkoutJsonReader
+    public class WorkoutJsonReader : IWorkoutManager
     {
+        string _filePath;
 
-        public static List<Workout> Workouts { get { return ReadFromWorkoutJson(); } }
-        public static List<Workout> ReadFromWorkoutJson()
+        public WorkoutJsonReader(string filePath)
+        {
+            _filePath = filePath;
+        }
+        public  List<Workout> Workouts { get { return ReadFromWorkoutJson(); } }
+        public List<Workout> ReadFromWorkoutJson()
         {
             var workouts = new List<Workout>();
             string json = File.ReadAllText("C:\\Users\\risha\\Documents\\CODEEE\\WOrkout.json");
@@ -46,7 +51,7 @@ namespace FitnessTracker.DataAccess
 
         }
 
-        public static List<WorkoutPlanViewModel> ReadWorkoutPlan()
+        public List<WorkoutPlanViewModel> ReadWorkoutPlan()
         {
             List<WorkoutPlanViewModel> wpvm;
             using (FileStream reader = new FileStream(@"C:\Users\risha\Documents\Sem2\Prog\FitnessTracker\FitnessTracker\Resources\Raw\WorkoutPlans.json", FileMode.Open))
@@ -55,7 +60,7 @@ namespace FitnessTracker.DataAccess
             }
             return wpvm;
         }
-        public static void WriteWorkoutPlan(string workoutName, string userName)
+        public void WriteWorkoutPlan(string workoutName, string userName)
         {
 
             List<WorkoutPlanViewModel> workoutPlans = ReadWorkoutPlan();
@@ -63,14 +68,12 @@ namespace FitnessTracker.DataAccess
             var index = workoutPlans.FindIndex(x => x.UserName == userName);
             if (index == -1)
             {
-                workoutPlans.Add(new WorkoutPlanViewModel() { UserName = userName, Workouts = new List<string> { workoutName } }
+                workoutPlans.Add(new WorkoutPlanViewModel(){ UserName = userName, Workouts = new List<string> { workoutName } }
 
                 );
             }
-            else
-            {
-                workoutPlans[index].Workouts.Add(workoutName);
-            }
+            else { 
+            workoutPlans[index].Workouts.Add(workoutName);}
 
             using (FileStream writer = new FileStream(@"C:\Users\risha\Documents\Sem2\Prog\FitnessTracker\FitnessTracker\Resources\Raw\WorkoutPlans.json", FileMode.Create, FileAccess.ReadWrite))
             {

@@ -2,10 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitnessTracker.Pages.AddWorkoutPlan"
-             Title="WorkoutPlan">
+             Title="WorkoutPlan"
+             BackgroundColor="LightGray">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="TextColor" Value="LightGreen"/>
+            <Setter Property="BackgroundColor" Value="Blue"/>
+        </Style>
+    </ContentPage.Resources>
     <Grid RowDefinitions="*,*,8*,*" ColumnDefinitions="*,*">
         <Label Text="Add Workout Plans" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center"
-               FontSize="Header"/>
+               FontSize="Header" TextColor="LightGreen"/>
         <Picker
             x:Name="Filter"
             Grid.Row="1"
@@ -26,19 +33,28 @@
                                 <Label 
                                         Text="{Binding Name}"
                                         FontAttributes="Bold"
-                                        FontSize="Medium"/>
+                                        FontSize="Medium"
+                                        TextColor="Blue"/>
                                 <Label 
                                         Text="{Binding Description}"
                                         FontAttributes="Italic"
                                         FontSize="Small"/>
-                                <Label 
-                                        Text="{Binding Duration, StringFormat='Duration: {0}' }"
-                                        FontAttributes="Italic"
-                                        FontSize="Small"/>
-                                <Label 
-                                        Text="{Binding DifficultyLevel, StringFormat='Difficulty Level: {0}' }"
-                                        FontAttributes="Italic"
-                                        FontSize="Small"/>
+                                <Label FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Duration: " TextColor="Red"/>
+                                            <Span Text="{Binding Duration}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Difficulty Level: " TextColor="Red"/>
+                                            <Span Text="{Binding DifficultyLevel}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
                             </VerticalStackLayout>
                         </Grid>
                     </ViewCell>
@@ -65,10 +81,6 @@
                                         FontAttributes="Bold"
                                         FontSize="Medium"/>
                                 <Label 
-                                        Text="{Binding Sets, StringFormat='Sets: {0}'}"
-                                        FontAttributes="Italic"
-                                        FontSize="Small"/>
-                                <Label 
                                         Text="{Binding Reps, StringFormat='Reps: {0}'}"
                                         FontAttributes="Italic"
                                         FontSize="Small"/>
@@ -86,22 +98,6 @@
             <Button Text="Back to Home" FontSize="Medium" Margin="10,10,10,10"/>
 
         </HorizontalStackLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </Grid>
     
