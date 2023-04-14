@@ -7,10 +7,12 @@
 
     <ContentPage.Resources>
         <Style TargetType="Label">
+            <Setter Property="TextColor" Value="DarkSlateGray"/>
             <Setter Property="HorizontalOptions" Value="End"/>
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
         <Style TargetType="Label" x:Key="Title">
+            <Setter Property="TextColor" Value="DarkSlateGray"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="FontAttributes" Value="Bold"/>
@@ -21,19 +23,24 @@
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="TextColor" Value="DarkSlateGray"/>
         </Style>
         <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="DarkSlateBlue"/>
             <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="MinimumWidthRequest" Value="200"/>
             <Setter Property="MaximumWidthRequest" Value="500"/>
         </Style>
         <Style TargetType="Entry" x:Key="PhysEntry">
+            <Setter Property="TextColor" Value="DarkSlateBlue"/>
             <Setter Property="MinimumWidthRequest" Value="100"/>
             <Setter Property="MaximumWidthRequest" Value="100"/>
         </Style>
     </ContentPage.Resources>
     <Grid
+        BackgroundColor="LightBlue"
         ColumnDefinitions="*,4*"
         RowDefinitions="*,*,*,*">
         <Label 
@@ -98,6 +105,7 @@
                 x:Name="DoBPicker"
                 Grid.Row="0"
                 Grid.Column="1"
+                TextColor="DarkSlateBlue"
                 />
             <Label
                 Text="Height(cm):"

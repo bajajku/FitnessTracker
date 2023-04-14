@@ -8,6 +8,7 @@
         <Style TargetType="Label">
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="DarkSlateGray"/>
         </Style>
         <Style TargetType="Label" x:Key="BlackLabel">
             <Setter Property="HorizontalOptions" Value="Center"/>
@@ -29,6 +30,7 @@
             <Setter Property="WidthRequest" Value="25"/>
         </Style>
         <Style TargetType="Label" x:Key="Title">
+            <Setter Property="TextColor" Value="DarkSlateGray"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="FontAttributes" Value="Bold"/>
@@ -41,14 +43,18 @@
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="TextColor" Value="DarkSlateGray"/>
         </Style>
         <Style TargetType="Button">
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="BackgroundColor" Value="CornflowerBlue"/>
+            <Setter Property="TextColor" Value="DarkSlateGray"/>
         </Style>
     </ContentPage.Resources>
     
     <Grid
+        BackgroundColor="LightBlue"
         RowDefinitions="*,2*,3*,*"
         ColumnDefinitions="*">
         <Label
@@ -62,14 +68,14 @@
             RowDefinitions="*,*,*"
             Grid.Row="1"
             Grid.Column="0"
-            BackgroundColor="Gray"
+            BackgroundColor="AliceBlue"
             Padding="5,5,5,5"
             Margin="80,0,80,0"
             >
             <Label
                 Grid.Row="0"
                 Grid.Column="0"
-                Text="User Info:"
+                Text="Your Physical Stats:"
                 Style="{StaticResource SubTitle}"
                 />
             <Label
@@ -100,13 +106,15 @@
             RowDefinitions="*,*,*,*,*"
             Grid.Row="2"
             Grid.Column="0"
-            BackgroundColor="White">
+            BackgroundColor="White"
+            Padding="5,5,5,5"
+            Margin="80,0,80,0">
             <Label
                 Style="{StaticResource SubTitle}"
                 TextColor="Black"
                 Grid.Row="0"
                 Grid.Column="0"
-                Text="Nutrition Tracker:"
+                Text="Today's Nutritional Stats:"
                 />
             <Label
                 x:Name="CaloriesLabel"
@@ -149,7 +157,9 @@
                 Grid.Row="4"
                 Grid.ColumnSpan="2"
                 HorizontalOptions="Fill"
-                BackgroundColor="LightGrey">
+                VerticalOptions="CenterAndExpand"
+                BackgroundColor="AliceBlue"
+                Padding="5,5,30,5">
                 <Label
                     Style="{StaticResource BlackLabel2}"
                     FontAttributes="Bold"
@@ -158,7 +168,7 @@
                 <HorizontalStackLayout
                     Spacing="10"
                     HorizontalOptions="Fill"
-                    VerticalOptions="Center">
+                    VerticalOptions="CenterAndExpand">
                     <HorizontalStackLayout
                         Style="{StaticResource HorizontalEntry}">
                         <Label
@@ -222,8 +232,6 @@
                     <Button
                         Text="Submit"
                         Clicked="SubmitNewNutritionEntry"
-                        BackgroundColor="DarkGray"
-                        TextColor="Black"
                         />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
