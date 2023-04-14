@@ -61,7 +61,16 @@ namespace FitnessTracker.DataAccess
             List<WorkoutPlanViewModel> workoutPlans = ReadWorkoutPlan();
 
             var index = workoutPlans.FindIndex(x => x.UserName == userName);
-            workoutPlans[index].Workouts.Add(workoutName);
+            if (index == -1)
+            {
+                workoutPlans.Add(new WorkoutPlanViewModel() { UserName = userName, Workouts = new List<string> { workoutName } }
+
+                );
+            }
+            else
+            {
+                workoutPlans[index].Workouts.Add(workoutName);
+            }
 
             using (FileStream writer = new FileStream(@"C:\Users\risha\Documents\Sem2\Prog\FitnessTracker\FitnessTracker\Resources\Raw\WorkoutPlans.json", FileMode.Create, FileAccess.ReadWrite))
             {

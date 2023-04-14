@@ -7,7 +7,7 @@ public partial class AddWorkoutPlan : ContentPage
 	List<Workout> workouts;
     Workout _selectedWorkout;
     List<string> tags = new List<string>();
-
+    User _user;
     public Workout SelectedWorkout // property to return selected room from list view
     {
         get => _selectedWorkout;
@@ -19,9 +19,10 @@ public partial class AddWorkoutPlan : ContentPage
         }
     }
 
-    public AddWorkoutPlan()
+    public AddWorkoutPlan(User user)
 	{
 		InitializeComponent();
+        _user = user;
 		workouts = WorkoutJsonReader.Workouts;
 		ListWorkoutPlans.ItemsSource = workouts;
         tags.Add("All");
@@ -53,7 +54,8 @@ public partial class AddWorkoutPlan : ContentPage
         }
         else
         {
-            WorkoutJsonReader.WriteWorkoutPlan(selectedWorkout.Name, "Kunal");
+            WorkoutJsonReader.WriteWorkoutPlan(selectedWorkout.Name,_user.Username);
+            await DisplayAlert("Success", "Workout has been successfully added", "Ok");
             //await Navigation.PushAsync(new NewPage1(selectedWorkout));
         }
     }

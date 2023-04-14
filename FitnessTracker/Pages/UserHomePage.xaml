@@ -39,7 +39,7 @@
             <Setter Property="HorizontalOptions" Value="Center"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="FontAttributes" Value="Bold"/>
-            <Setter Property="FontSize" Value=""/>
+            <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="Grid.ColumnSpan" Value="2"/>
         </Style>
         <Style TargetType="Button">
@@ -239,12 +239,19 @@
             VerticalOptions="Start"/>
         </VerticalStackLayout>-->
 
-        <Button
-            Text="View my Workout Plan"
-            Grid.Row="3"
+        <HorizontalStackLayout Grid.Row="3"
             Grid.Column="0"
-            Grid.ColumnSpan="2"
-            Clicked="ViewWorkoutClicked"
+            Grid.ColumnSpan="2" HorizontalOptions="Center">
+            <Button
+            Text="Browse Workouts"
+            Clicked="BrowseWorkoutsClicked" 
             />
+            <Button 
+             Text="My Plan"
+             Clicked="MyPlanClicked" 
+                
+                />
+
+        </HorizontalStackLayout>
     </Grid>
 </ContentPage>

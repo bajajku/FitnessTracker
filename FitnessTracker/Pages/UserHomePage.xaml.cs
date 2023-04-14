@@ -6,12 +6,13 @@ namespace FitnessTracker.Pages;
 public partial class UserHomePage : ContentPage
 {
 	NutritionManager _nutritionManager = new NutritionManager();
-	INutritionDataManager _nutritionDataManager = new NutritionJsonManager(Path.Combine(FileSystem.Current.AppDataDirectory,"nutrition.json"));
-	NutritionTracker _nutritionTracker;
+	INutritionDataManager _nutritionDataManager = new NutritionJsonManager(Path.Combine(FileSystem.Current.AppDataDirectory,"nutrition.json"));	NutritionTracker _nutritionTracker;
+	User _user;
 	public UserHomePage(User user)
 	{
         //BindingContext = user;
         InitializeComponent();
+		_user = user;
 		try
 		{
 			_nutritionManager.ReadAllNutritionTrackers(_nutritionDataManager); //tries to load from file
@@ -48,8 +49,13 @@ public partial class UserHomePage : ContentPage
 		_nutritionTracker.UpdateNutrition(calories, fat,carbs, protein, sodium);
 		_nutritionManager.SaveAllNutritionTrackers(_nutritionDataManager);
     }
-    private async void ViewWorkoutClicked(object sender, EventArgs e)
+    private async void BrowseWorkoutsClicked(object sender, EventArgs e)
     {
-		await Navigation.PushAsync(new AddWorkoutPlan()); //
+		await Navigation.PushAsync(new AddWorkoutPlan(_user)); //
+    }
+
+    private async void MyPlanClicked(object sender, EventArgs e)
+    {
+		await Navigation.PushAsync(new MyWorkoutPlans(_user.Username));
     }
 }
