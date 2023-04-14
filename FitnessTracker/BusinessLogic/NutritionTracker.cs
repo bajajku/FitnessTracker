@@ -33,11 +33,11 @@ namespace FitnessTracker.BusinessLogic
             get { return _carbs; }
             set { if (value >= 0) _carbs = value; }
         }
-        private int _protien;
-        public int Protien
+        private int _protein;
+        public int Protein
         {
-            get { return _protien; }
-            set { if (value >= 0) _protien = value; }
+            get { return _protein; }
+            set { if (value >= 0) _protein = value; }
         }
         private int _sodium;
         public int Sodium
@@ -52,19 +52,33 @@ namespace FitnessTracker.BusinessLogic
             get { return _date; }
             set { _date = value; }
         }
-        public void UpdateNutrition(int fat, int carbs, int protien, int sodium)
+        public void UpdateNutrition(int calories = 0, int fat = 0, int carbs = 0, int protien = 0, int sodium = 0)
         {
+            _calories += calories;
             _fat += fat;
             _carbs += carbs;
-            _protien += protien;
+            _protein += protien;
             _sodium += sodium;
+        }
+        public void DateRefresh()
+        {
+            if(_date.Day != (DateTime.Now).Day)
+            {
+                Calories= 0;
+                Fat = 0;
+                Carbs = 0;
+                Protein = 0;
+                Sodium = 0;
+                Date = DateTime.Now;
+            }
         }
         public NutritionTracker(string userName)
         {
             _userName= userName;
+            _calories = 0;
             _fat = 0;
             _carbs = 0;
-            _protien = 0;
+            _protein = 0;
             _sodium = 0;
             _date= DateTime.Now;
         }

@@ -12,7 +12,7 @@
         ContentTemplate="{DataTemplate local:UserLoginPage}"
         Route="MainPage" />
 
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+    <!--<FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
             Title="Home"
             ContentTemplate="{DataTemplate local:UserHomePage}"
@@ -29,5 +29,5 @@
             Route="Plan"
             />
     </FlyoutItem>
-
+    -->
 </Shell>

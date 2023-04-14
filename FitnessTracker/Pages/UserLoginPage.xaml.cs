@@ -40,7 +40,7 @@ public partial class UserLoginPage : ContentPage
     {
         if (NewAccount.IsChecked) NewUserFromEntry();        
         //always tries to login, if newaccount is checked, it will create a user FIRST
-
+        else LoginFromEntry();
     }
 
     public void NewUserFromEntry()
@@ -98,7 +98,7 @@ public partial class UserLoginPage : ContentPage
                     throw new Exception("Username or Password is incorrect");
                 }
                 UserHomePage _userHomePage = new UserHomePage(loggedInUser);//parameter should be the fuckin uh, the user manager i think? cause the index of the user is the key for everything else.
-                _userHomePage.BindingContext = loggedInUser; //binding context of user page is the user!!!
+                //_userHomePage.BindingContext = loggedInUser; //binding context of user page is the user!!!
                 await Navigation.PushAsync(_userHomePage); //do not log in when a user like that already exists.
             }
             
