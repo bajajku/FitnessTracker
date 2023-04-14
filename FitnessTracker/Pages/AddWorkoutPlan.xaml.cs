@@ -8,6 +8,8 @@ public partial class AddWorkoutPlan : ContentPage
     Workout _selectedWorkout;
     List<string> tags = new List<string>();
     WorkoutJsonReader workoutManager = new WorkoutJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "Workout.json"));
+    IWorkoutManager workoutPlanManager = new WorkoutPlanJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "WorkoutPlans.json"));
+
     User _user;
     public Workout SelectedWorkout // property to return selected room from list view
     {
@@ -55,7 +57,7 @@ public partial class AddWorkoutPlan : ContentPage
         }
         else
         {
-            workoutManager.WriteWorkoutPlan(selectedWorkout.Name,_user.Username);
+            workoutPlanManager.WriteWorkoutPlan(selectedWorkout.Name,_user.Username);
             await DisplayAlert("Success", "Workout has been successfully added", "Ok");
             //await Navigation.PushAsync(new NewPage1(selectedWorkout));
         }

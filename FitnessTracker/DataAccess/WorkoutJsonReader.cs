@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.DataAccess
 {
-    public class WorkoutJsonReader : IWorkoutManager
+    public class WorkoutJsonReader
     {
         string _filePath;
 
@@ -21,7 +21,7 @@ namespace FitnessTracker.DataAccess
         public List<Workout> ReadFromWorkoutJson()
         {
             var workouts = new List<Workout>();
-            string json = File.ReadAllText("C:\\Users\\risha\\Documents\\CODEEE\\WOrkout.json");
+            string json = File.ReadAllText(_filePath);
 
             // Deserialize the JSON to a dynamic object
             // dynamic dataList = JsonSerializer.Deserialize<dynamic>(json);
@@ -51,34 +51,5 @@ namespace FitnessTracker.DataAccess
 
         }
 
-        public List<WorkoutPlanViewModel> ReadWorkoutPlan()
-        {
-            List<WorkoutPlanViewModel> wpvm;
-            using (FileStream reader = new FileStream(@"C:\Users\risha\Documents\Sem2\Prog\FitnessTracker\FitnessTracker\Resources\Raw\WorkoutPlans.json", FileMode.Open))
-            {
-                wpvm = JsonSerializer.Deserialize<List<WorkoutPlanViewModel>>(reader);
-            }
-            return wpvm;
-        }
-        public void WriteWorkoutPlan(string workoutName, string userName)
-        {
-
-            List<WorkoutPlanViewModel> workoutPlans = ReadWorkoutPlan();
-
-            var index = workoutPlans.FindIndex(x => x.UserName == userName);
-            if (index == -1)
-            {
-                workoutPlans.Add(new WorkoutPlanViewModel(){ UserName = userName, Workouts = new List<string> { workoutName } }
-
-                );
-            }
-            else { 
-            workoutPlans[index].Workouts.Add(workoutName);}
-
-            using (FileStream writer = new FileStream(@"C:\Users\risha\Documents\Sem2\Prog\FitnessTracker\FitnessTracker\Resources\Raw\WorkoutPlans.json", FileMode.Create, FileAccess.ReadWrite))
-            {
-                JsonSerializer.Serialize(writer, workoutPlans);
-            }
-        }
     }
 }

@@ -9,7 +9,6 @@ namespace FitnessTracker.DataAccess
 {
     public interface IWorkoutManager
     {
-        public List<Workout> ReadFromWorkoutJson();
 
         public List<WorkoutPlanViewModel> ReadWorkoutPlan();
 
