@@ -4,9 +4,11 @@ using FitnessTracker.DataAccess;
 
 public partial class AddWorkoutPlan : ContentPage
 {
+    // variables to store data
 	List<Workout> workouts;
     Workout _selectedWorkout;
     List<string> tags = new List<string>();
+    // creating instances with correct file path
     WorkoutJsonReader workoutManager = new WorkoutJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "Workout.json"));
     IWorkoutManager workoutPlanManager = new WorkoutPlanJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "WorkoutPlans.json"));
 
@@ -22,7 +24,7 @@ public partial class AddWorkoutPlan : ContentPage
         }
     }
 
-    public AddWorkoutPlan(User user)
+    public AddWorkoutPlan(User user) // Let User add workouts to their plans
 	{
 		InitializeComponent();
         _user = user;
@@ -35,7 +37,7 @@ public partial class AddWorkoutPlan : ContentPage
         BindingContext= this;
 	}
 
-    private void Filter_SelectedIndexChanged(object sender, EventArgs e)
+    private void Filter_SelectedIndexChanged(object sender, EventArgs e)// to filter workout plans via picker
     {
         var selectedItem = Filter.SelectedItem.ToString();
         if(selectedItem != "All")
@@ -48,7 +50,7 @@ public partial class AddWorkoutPlan : ContentPage
         }
     }
 
-    private async void AddPlanClicked(object sender, EventArgs e)
+    private async void AddPlanClicked(object sender, EventArgs e)// Event handler for add plan button clicked
     {
         Workout selectedWorkout = (Workout)ListWorkoutPlans.SelectedItem;
         if(selectedWorkout == null)
@@ -61,5 +63,11 @@ public partial class AddWorkoutPlan : ContentPage
             await DisplayAlert("Success", "Workout has been successfully added", "Ok");
             //await Navigation.PushAsync(new NewPage1(selectedWorkout));
         }
+    }
+
+    public async void BackToHomeClicked(object sender, EventArgs e)// takes user back to home page
+    {
+        await Navigation.PopAsync();
+
     }
 }

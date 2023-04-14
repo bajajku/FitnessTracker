@@ -17,7 +17,7 @@ namespace FitnessTracker.DataAccess
         {
             _filePath = filePath;
         }
-        public List<WorkoutPlanViewModel> ReadWorkoutPlan() // return 
+        public List<WorkoutPlanViewModel> ReadWorkoutPlan() // returning workout plan view model from json file
         {
             List<WorkoutPlanViewModel> wpvm;
             using (FileStream reader = new FileStream(_filePath, FileMode.Open))
@@ -26,7 +26,7 @@ namespace FitnessTracker.DataAccess
             }
             return wpvm;
         }
-        public void WriteWorkoutPlan(string workoutName, string userName)
+        public void WriteWorkoutPlan(string workoutName, string userName)// writing workouts to json file 
         {
 
             List<WorkoutPlanViewModel> workoutPlans = ReadWorkoutPlan();

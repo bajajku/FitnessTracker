@@ -1,37 +1,123 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FitnessTracker.Pages.MyWorkoutPlans">
-    <ListView x:Name="ListMyPlan" 
-                Margin="10,10,10,10">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid
+             x:Class="FitnessTracker.Pages.MyWorkoutPlans"
+             BackgroundColor="LightGray">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="TextColor" Value="LightGreen"/>
+            <Setter Property="BackgroundColor" Value="Blue"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="*,8*,*" ColumnDefinitions="*,*">
+        <Label Text="Add Workout Plans" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center"
+               FontSize="Header" TextColor="Blue"/>
+        <ListView x:Name="ListWorkoutPlans" Grid.Row="1" Grid.Column="0"
+                  SelectedItem="{Binding SelectedWorkout,Mode=TwoWay}" Margin="10,10,10,10" BackgroundColor="LightBlue">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
                         ColumnDefinitions="5*">
-                        <VerticalStackLayout
+                            <VerticalStackLayout
                                     Grid.Column="0"
                                     >
-                            <Label 
+                                <Label 
                                         Text="{Binding Name}"
                                         FontAttributes="Bold"
-                                        FontSize="Medium"/>
-                            <Label 
+                                        FontSize="Medium"
+                                        TextColor="Blue"/>
+                                <Label 
                                         Text="{Binding Description}"
                                         FontAttributes="Italic"
-                                        FontSize="Small"/>
-                            <Label 
-                                        Text="{Binding Duration, StringFormat='Duration: {0}' }"
-                                        FontAttributes="Italic"
-                                        FontSize="Small"/>
-                            <Label 
-                                        Text="{Binding DifficultyLevel, StringFormat='Difficulty Level: {0}' }"
-                                        FontAttributes="Italic"
-                                        FontSize="Small"/>
-                        </VerticalStackLayout>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                                        FontSize="Small"
+                                    TextColor="Black"/>
+                                <Label FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Duration: " TextColor="Green"/>
+                                            <Span Text="{Binding Duration}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Difficulty Level: " TextColor="Green"/>
+                                            <Span Text="{Binding DifficultyLevel}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="ExercisesList" Grid.Row="1" Grid.Column="1"
+                  ItemsSource="{Binding Path=SelectedWorkout.Exercises}" Margin="10,10,10,10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
+                        ColumnDefinitions="3*,*">
+                            <Image Grid.Column="1" Source="{Binding Image}" 
+                                    HeightRequest="200"
+                                   WidthRequest="200"
+                                   Margin="10,10,10,10"
+                               />
+                            <VerticalStackLayout
+                                    Grid.Column="0"
+                                    >
+                                <Label 
+                                        Text="{Binding Name}"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                    TextColor="Green"/>
+                                <Label FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Sets: " TextColor="Green"/>
+                                            <Span Text="{Binding Sets}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Reps: " TextColor="Green"/>
+                                            <Span Text="{Binding Reps}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Primary Muscle: " TextColor="Green"/>
+                                            <Span Text="{Binding PrimaryMuscle}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label FontSize="Medium">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Secondary Muscle: " TextColor="Green"/>
+                                            <Span Text="{Binding SecondaryMuscle}" TextColor="Black"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <HorizontalStackLayout 
+            Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center">
+            <Button Text="Back to Home" FontSize="Medium" Margin="10,10,10,10"
+                    Clicked="BackToHomeClicked"/>
+
+        </HorizontalStackLayout>
+
+    </Grid>
 </ContentPage>
