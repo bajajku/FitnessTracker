@@ -38,7 +38,7 @@ public partial class UserLoginPage : ContentPage
 
     private void OnNextClicked(object sender, EventArgs e)
     {
-        if (NewAccount.IsChecked) NewUserFromEntry();
+        if (NewAccount.IsChecked) NewUserFromEntry();        
         //always tries to login, if newaccount is checked, it will create a user FIRST
 
     }
