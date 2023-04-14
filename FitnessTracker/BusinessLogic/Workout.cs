@@ -16,22 +16,19 @@ namespace FitnessTracker.BusinessLogic
         string _description;// one line description of workout , eg: Works muscles primary used for pulling that are back, biceps etc.
         [JsonPropertyName("description")]
 
-        public string Description { get { return _description;} set { _description = value; } }
+        public string Description { get { return _description;} set { _description = value; } } // decription of workout
 
-        // a field to calculate duration for workout.
 
         DifficultyLevel _difficultyLevel;// difficulty level for the workout.
         [JsonPropertyName("difficultyLevel")]
         public DifficultyLevel DifficultyLevel { get { return _difficultyLevel;} set { _difficultyLevel = value; } }
 
-        int _duration;
-        public int Duration { get { return _duration; } set { _duration = value; } }
 
-        List<string> _tags;
+        List<string> _tags; // tags associated with workout
         public List<string> Tags { get { return _tags; } set { _tags = value; } }
 
 
-        List<Exercise> _exercises;
+        List<Exercise> _exercises;// list of exercises 
         public List<Exercise> Exercises { get { return _exercises; } set { _exercises = value; } }
     }
 }

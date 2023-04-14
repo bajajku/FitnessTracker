@@ -10,14 +10,13 @@ namespace FitnessTracker.BusinessLogic
     // class to store exercises
    public class Exercise
    {
+        //field variables for exercises
         string _name;
         string _primaryMuscle;
         string _secondaryMuscle;
         int _sets;
         int _reps;
         string _image;
-        //int _duration;
-
         [JsonPropertyOrder(1)]
         [JsonPropertyName("name")]
         public string Name
@@ -51,9 +50,7 @@ namespace FitnessTracker.BusinessLogic
         [JsonPropertyOrder(6)]
         public string Image { get=> _image; set { _image = value; } }
 
-        //[JsonPropertyName("duration")]
-        //public int Duration { get => _duration; set { _duration = value; } }
-        public Exercise(string name, int sets, int reps, string primaryMuscle, string secondaryMuscle,string image)
+        public Exercise(string name, int sets, int reps, string primaryMuscle, string secondaryMuscle,string image) // constructor for exercises
         {
             Name = name;
             PrimaryMuscle = primaryMuscle;

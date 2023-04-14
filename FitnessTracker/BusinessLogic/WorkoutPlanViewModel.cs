@@ -8,7 +8,8 @@ namespace FitnessTracker.BusinessLogic
 {
     public class WorkoutPlanViewModel
     {
-        public string UserName { get; set; }
-        public List<string> Workouts{ get; set; }
+        // model for My workouts plan page
+        public string UserName { get; set; } // has username
+        public List<string> Workouts{ get; set; }//has list of workout names
     }
 }

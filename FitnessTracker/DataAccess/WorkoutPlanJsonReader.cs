@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.DataAccess
 {
+    // class to read and write workout plans
     public class WorkoutPlanJsonReader : IWorkoutManager
     {
-        string _filePath;
+        string _filePath; // setting same path for all users 
 
         public WorkoutPlanJsonReader(string filePath)
         {
             _filePath = filePath;
         }
-        public List<WorkoutPlanViewModel> ReadWorkoutPlan()
+        public List<WorkoutPlanViewModel> ReadWorkoutPlan() // return 
         {
             List<WorkoutPlanViewModel> wpvm;
             using (FileStream reader = new FileStream(_filePath, FileMode.Open))
