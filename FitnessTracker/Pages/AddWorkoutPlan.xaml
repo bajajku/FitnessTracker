@@ -11,7 +11,7 @@
         </Style>
     </ContentPage.Resources>
     <Grid RowDefinitions="*,*,8*,*" ColumnDefinitions="*,*">
-        <Label Text="My Workout Plan" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center"
+        <Label Text="Add Workout Plans" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center"
                FontSize="Header" TextColor="Blue"/>
         <Picker
             x:Name="Filter"

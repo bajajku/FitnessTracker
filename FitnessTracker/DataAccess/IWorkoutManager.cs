@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker.DataAccess
 {
-    public interface IWorkoutManager
+    public interface IWorkoutManager // interface for impemeneting workoutplanjsonrader
     {
 
         public List<WorkoutPlanViewModel> ReadWorkoutPlan();

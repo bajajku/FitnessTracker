@@ -49,7 +49,7 @@ namespace FitnessTracker.DataAccess
             }
         }
 
-        public void RemoveWorkoutPlan(string workoutName, string userName)// writing workouts to json file 
+        public void RemoveWorkoutPlan(string workoutName, string userName)// removing workouts from json file 
         {
 
             List<WorkoutPlanViewModel> workoutPlans = ReadWorkoutPlan();
