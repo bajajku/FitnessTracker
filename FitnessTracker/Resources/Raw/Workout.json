@@ -54,9 +54,9 @@
     {
       "name": "Full-Body Circuit",
       "description": "A Full body workout routine, which engages all the primary muscle groups.",
-      "difficultyLevel": "Intermmediate",
+      "difficultyLevel": "Intermediate",
       "duration": "60",
-      "tags": [ "Build muscle", "Strength", "Endurance", "Weight training", "Intermmediate" ],
+      "tags": [ "Build muscle", "Strength", "Endurance", "Weight training", "Intermediate" ],
       "exercises": [
         {
           "name": "Bench Press",
@@ -154,9 +154,9 @@
     {
       "name": "Pull Workout",
       "description": "A Pull workout routine, which engages all the primary pulling muscles.",
-      "difficultyLevel": "Intermmediate",
+      "difficultyLevel": "Intermediate",
       "duration": "60",
-      "tags": [ "Build muscle", "Strength", "Weight training", "Intermmediate" ],
+      "tags": [ "Build muscle", "Strength", "Weight training", "Intermediate" ],
       "exercises": [
         {
           "name": "Lat-PullDown",
@@ -204,9 +204,9 @@
     {
       "name": "Push Workout",
       "description": "A Push workout routine, which engages all the primary Pushing muscles.",
-      "difficultyLevel": "Intermmediate",
+      "difficultyLevel": "Intermediate",
       "duration": "60",
-      "tags": [ "Build muscle", "Strength", "Weight training", "Intermmediate" ],
+      "tags": [ "Build muscle", "Strength", "Weight training", "Intermediate" ],
       "exercises": [
         {
           "name": "Bench Press",
@@ -392,9 +392,9 @@
     {
       "name": "Intermmediate Calisthenics",
       "description": "An Intermmediate calisthenics Workout routine, which is best for somewhat experienced Calsithenics enthusiasts",
-      "difficultyLevel": "Intermmediate",
+      "difficultyLevel": "Intermediate",
       "duration": "45",
-      "tags": [ "Fat Burning", "Cardio", "Home workout", "Body Weight", "Intermmediate" ],
+      "tags": [ "Fat Burning", "Cardio", "Home workout", "Body Weight", "Intermediate" ],
       "exercises": [
         {
           "name": "Push-Ups",
