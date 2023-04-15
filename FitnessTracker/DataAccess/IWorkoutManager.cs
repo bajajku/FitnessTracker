@@ -13,6 +13,7 @@ namespace FitnessTracker.DataAccess
         public List<WorkoutPlanViewModel> ReadWorkoutPlan();
 
         public void WriteWorkoutPlan(string workoutName, string userName);
+        public void RemoveWorkoutPlan(string workoutName, string userName);
 
     }
 }

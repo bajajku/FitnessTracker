@@ -48,5 +48,27 @@ namespace FitnessTracker.DataAccess
                 JsonSerializer.Serialize(writer, workoutPlans);
             }
         }
+
+        public void RemoveWorkoutPlan(string workoutName, string userName)// writing workouts to json file 
+        {
+
+            List<WorkoutPlanViewModel> workoutPlans = ReadWorkoutPlan();
+
+            var index = workoutPlans.FindIndex(x => x.UserName == userName);
+            if (index == -1)
+            {
+                // Do Nothing
+                throw new Exception("Workout or user is invalid!!");
+            }
+            else
+            {
+                workoutPlans[index].Workouts.Remove(workoutName);
+            }
+
+            using (FileStream writer = new FileStream(_filePath, FileMode.Create, FileAccess.ReadWrite))
+            {
+                JsonSerializer.Serialize(writer, workoutPlans);
+            }
+        }
     }
 }

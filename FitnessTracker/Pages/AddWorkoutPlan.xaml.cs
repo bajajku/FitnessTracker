@@ -37,7 +37,7 @@ public partial class AddWorkoutPlan : ContentPage
         BindingContext= this;
 	}
 
-    private void Filter_SelectedIndexChanged(object sender, EventArgs e)// to filter workout plans via picker
+    public void Filter_SelectedIndexChanged(object sender, EventArgs e)// to filter workout plans via picker
     {
         var selectedItem = Filter.SelectedItem.ToString();
         if(selectedItem != "All")
@@ -50,7 +50,7 @@ public partial class AddWorkoutPlan : ContentPage
         }
     }
 
-    private async void AddPlanClicked(object sender, EventArgs e)// Event handler for add plan button clicked
+    public async void AddPlanClicked(object sender, EventArgs e)// Event handler for add plan button clicked
     {
         Workout selectedWorkout = (Workout)ListWorkoutPlans.SelectedItem;
         if(selectedWorkout == null)

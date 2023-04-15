@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitnessTracker.Pages.MyWorkoutPlans"
-             BackgroundColor="LightGray">
+             BackgroundColor="LightBlue">
     <ContentPage.Resources>
         <Style TargetType="Button">
             <Setter Property="TextColor" Value="LightGreen"/>
@@ -116,6 +116,8 @@
             Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center">
             <Button Text="Back to Home" FontSize="Medium" Margin="10,10,10,10"
                     Clicked="BackToHomeClicked"/>
+            <Button Text="Remove from Plan" FontSize="Medium" Margin="10,10,10,10"
+                    Clicked="RemoveWorkoutClicked" BackgroundColor="Red" TextColor="White"/>
 
         </HorizontalStackLayout>
 

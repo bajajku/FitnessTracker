@@ -15,10 +15,10 @@ namespace FitnessTracker.DataAccess
 
         public WorkoutJsonReader(string filePath)
         {
-            _filePath = filePath;
+            _filePath = filePath;// setting same path
         }
-        public  List<Workout> Workouts { get { return ReadFromWorkoutJson(); } }
-        public List<Workout> ReadFromWorkoutJson()
+        public  List<Workout> Workouts { get { return ReadFromWorkoutJson(); } } // property returning list of workouts
+        public List<Workout> ReadFromWorkoutJson()// Reading from Workout json file and returing list of workouts
         {
             var workouts = new List<Workout>();
             string json = File.ReadAllText(_filePath);

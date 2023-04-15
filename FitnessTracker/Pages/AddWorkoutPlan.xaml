@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitnessTracker.Pages.AddWorkoutPlan"
              Title="WorkoutPlan"
-             BackgroundColor="LightGray">
+             BackgroundColor="LightBlue">
     <ContentPage.Resources>
         <Style TargetType="Button">
             <Setter Property="TextColor" Value="LightGreen"/>
@@ -11,7 +11,7 @@
         </Style>
     </ContentPage.Resources>
     <Grid RowDefinitions="*,*,8*,*" ColumnDefinitions="*,*">
-        <Label Text="Add Workout Plans" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center"
+        <Label Text="My Workout Plan" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center"
                FontSize="Header" TextColor="Blue"/>
         <Picker
             x:Name="Filter"
