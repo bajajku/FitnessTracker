@@ -23,6 +23,8 @@ namespace FitnessTracker.BusinessLogic
         [JsonPropertyName("difficultyLevel")]
         public DifficultyLevel DifficultyLevel { get { return _difficultyLevel;} set { _difficultyLevel = value; } }
 
+        int _duration;// duration for the workout
+        public int Duration { get { return _duration; } set { _duration = value; } }
 
         List<string> _tags; // tags associated with workout
         public List<string> Tags { get { return _tags; } set { _tags = value; } }

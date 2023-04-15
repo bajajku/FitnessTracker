@@ -1,6 +1,7 @@
+
 using FitnessTracker.BusinessLogic;
 using FitnessTracker.DataAccess;
-using System.Collections.Generic;
+using FitnessTracker.DataAccess;
 
 namespace FitnessTracker.Pages;
 
@@ -9,6 +10,18 @@ public partial class MyWorkoutPlans : ContentPage
 	string _userName;
     IWorkoutManager workoutPlanManager = new WorkoutPlanJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "WorkoutPlans.json"));
     WorkoutJsonReader workoutManager = new WorkoutJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "Workout.json"));
+	Workout _selectedWorkout;
+    public Workout SelectedWorkout // property to return selected room from list view
+    {
+        get => _selectedWorkout;
+        set
+        {
+            if (_selectedWorkout == value) return;
+            _selectedWorkout = value;
+            OnPropertyChanged(); //notifies binding targets about the change in the property 
+        }
+    }
+
     public MyWorkoutPlans(string username)
 	{
 		InitializeComponent();
@@ -30,11 +43,16 @@ public partial class MyWorkoutPlans : ContentPage
 				{
 					myPlan.Add(listOfWorkouts.Where(x => x.Name == workout).FirstOrDefault());
 				}
-				ListMyPlan.ItemsSource = myPlan;
+				ListWorkoutPlans.ItemsSource = myPlan;
 			}
 		}catch(Exception c)
 		{
 			DisplayAlert("Alert", c.Message, "Ok");
 		}
 	}
+    public async void BackToHomeClicked(object sender, EventArgs e)// takes user back to home page
+    {
+        await Navigation.PopAsync();
+
+    }
 }
