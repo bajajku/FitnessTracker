@@ -28,7 +28,7 @@
         <Style TargetType="Entry">
             <Setter Property="HorizontalOptions" Value="Start"/>
             <Setter Property="WidthRequest" Value="25"/>
-            <Setter Property="TextColor" Value="DarkSlateGray"
+            <Setter Property="TextColor" Value="DarkSlateGray"/>typo
         </Style>
         <Style TargetType="Label" x:Key="Title">
             <Setter Property="TextColor" Value="DarkSlateGray"/>
