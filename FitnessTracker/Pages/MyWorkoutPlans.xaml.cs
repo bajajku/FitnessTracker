@@ -7,6 +7,7 @@ namespace FitnessTracker.Pages;
 
 public partial class MyWorkoutPlans : ContentPage
 {
+    // fields to store values
 	string _userName;
     IWorkoutManager workoutPlanManager = new WorkoutPlanJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "WorkoutPlans.json"));
     WorkoutJsonReader workoutManager = new WorkoutJsonReader(Path.Combine(FileSystem.Current.AppDataDirectory, "Workout.json"));
@@ -23,11 +24,11 @@ public partial class MyWorkoutPlans : ContentPage
         }
     }
 
-    public MyWorkoutPlans(string username)
+    public MyWorkoutPlans(string username) // showing workouts associated with the user name
 	{
 		InitializeComponent();
 		_userName = username;
-		var workoutPlan = workoutPlanManager.ReadWorkoutPlan().Where(x=>x.UserName == _userName).FirstOrDefault();
+		var workoutPlan = workoutPlanManager.ReadWorkoutPlan().Where(x=>x.UserName == _userName).FirstOrDefault(); // findiang workouts associated with the name
 		List<Workout> listOfWorkouts = workoutManager.ReadFromWorkoutJson();
 		myPlan = new ObservableCollection<Workout>();
 		BindingContext = this;
@@ -78,7 +79,7 @@ public partial class MyWorkoutPlans : ContentPage
             {
                 await DisplayAlert("Error", ex.Message, "Ok");
             }
-            //await Navigation.PushAsync(new NewPage1(selectedWorkout));
+
         }
     }
 }
