@@ -68,7 +68,9 @@ public partial class MyWorkoutPlans : ContentPage
         {
             try
             {
+                // remove from Observable collection
                 myPlan.Remove(selectedWorkout);
+                // remove from file workout plan
                 workoutPlanManager.RemoveWorkoutPlan(selectedWorkout.Name, _userName);
                 await DisplayAlert("Success", "Workout has been successfully removed from plan", "Ok");
 
